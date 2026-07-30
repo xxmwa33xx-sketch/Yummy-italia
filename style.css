@@ -1,0 +1,512 @@
+/* ============================================================
+   YUMMY ITALIA — Feuille de style principale
+   Design system : tons beige / jaune chaud / brun,
+   accents verts et rouges italiens utilisés avec parcimonie.
+   Élément signature : le ruban « tagliatelle » ondulé.
+   ============================================================ */
+
+/* ---------- 1. VARIABLES ---------- */
+:root {
+  /* Neutres chauds */
+  --beige-100: #FBF4E8;
+  --beige-200: #F4E7D1;
+  --beige-300: #EBD9BC;
+  --beige-400: #DFC8A3;
+
+  /* Bruns */
+  --brun-700: #6B4A2B;
+  --brun-800: #4A3220;
+  --brun-900: #2E1F14;
+
+  /* Jaune chaud — couleur principale */
+  --jaune-400: #F3C243;
+  --jaune-500: #E8A81C;
+  --jaune-600: #C88A0E;
+
+  /* Accents italiens — usage très parcimonieux */
+  --vert: #4E7A46;
+  --rouge: #B23A26;
+
+  --texte: var(--brun-900);
+  --texte-doux: #6E5842;
+
+  /* Typo */
+  --display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --corps: "Karla", "Helvetica Neue", Arial, sans-serif;
+
+  /* Rythme */
+  --max: 1180px;
+  --gutter: clamp(1.25rem, 5vw, 3.5rem);
+  --section-y: clamp(4rem, 10vw, 8rem);
+  --radius: 4px;
+
+  --ombre: 0 2px 0 rgba(46, 31, 20, .08);
+}
+
+/* ---------- 2. RESET ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--corps);
+  font-size: clamp(1rem, .95rem + .25vw, 1.0625rem);
+  line-height: 1.65;
+  color: var(--texte);
+  background: var(--beige-100);
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+button { font: inherit; }
+h1, h2, h3, h4 { margin: 0; font-family: var(--display); font-weight: 600; line-height: 1.05; }
+p { margin: 0 0 1em; }
+ul { margin: 0; padding: 0; list-style: none; }
+
+/* Texture papier très légère sur tout le site */
+body::before {
+  content: "";
+  position: fixed; inset: 0;
+  pointer-events: none; z-index: 999;
+  opacity: .035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- 3. UTILITAIRES ---------- */
+.wrap { width: 100%; max-width: var(--max); margin-inline: auto; padding-inline: var(--gutter); }
+.wrap--large { max-width: 1400px; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.section { padding-block: var(--section-y); position: relative; }
+
+/* ---------- 4. ÉLÉMENT SIGNATURE : LE RUBAN TAGLIATELLE ---------- */
+.ruban {
+  display: block; width: 100%; height: 14px;
+  background-repeat: repeat-x;
+  background-size: 84px 14px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='14' viewBox='0 0 84 14'%3E%3Cpath d='M0 7c7-7 14-7 21 0s14 7 21 0 14-7 21 0 14 7 21 0' fill='none' stroke='%23E8A81C' stroke-width='3.4' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+.ruban--brun {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='14' viewBox='0 0 84 14'%3E%3Cpath d='M0 7c7-7 14-7 21 0s14 7 21 0 14-7 21 0 14 7 21 0' fill='none' stroke='%236B4A2B' stroke-width='3.4' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+.ruban--creme {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='14' viewBox='0 0 84 14'%3E%3Cpath d='M0 7c7-7 14-7 21 0s14 7 21 0 14-7 21 0 14 7 21 0' fill='none' stroke='%23F4E7D1' stroke-width='3.4' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+.ruban--haut { position: fixed; top: 0; left: 0; z-index: 60; }
+
+/* Petit ruban court utilisé comme soulignement de titre */
+.ruban-court {
+  display: block; width: 84px; height: 14px; margin-top: .85rem;
+  background-repeat: repeat-x; background-size: 84px 14px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='14' viewBox='0 0 84 14'%3E%3Cpath d='M0 7c7-7 14-7 21 0s14 7 21 0 14-7 21 0 14 7 21 0' fill='none' stroke='%23E8A81C' stroke-width='3.4' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+.centre .ruban-court { margin-inline: auto; }
+
+/* ---------- 5. EN-TÊTE / NAVIGATION ---------- */
+.entete {
+  position: sticky; top: 14px; z-index: 50;
+  background: rgba(251, 244, 232, .92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(107, 74, 43, .14);
+}
+.entete__inner {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; min-height: 74px;
+}
+.logo {
+  font-family: var(--display);
+  font-size: 1.5rem; font-weight: 700; letter-spacing: -.02em;
+  text-decoration: none; line-height: 1;
+  display: inline-flex; align-items: baseline; gap: .4rem;
+}
+.logo span { color: var(--jaune-600); }
+.logo small {
+  font-family: var(--corps); font-size: .6rem; font-weight: 700;
+  letter-spacing: .22em; text-transform: uppercase; color: var(--texte-doux);
+}
+.nav { display: flex; align-items: center; gap: clamp(1rem, 2.4vw, 2rem); }
+.nav a {
+  text-decoration: none; font-size: .82rem; font-weight: 600;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding-block: .35rem; border-bottom: 2px solid transparent;
+  transition: border-color .2s, color .2s;
+}
+.nav a:hover { border-color: var(--jaune-500); }
+.nav a.actif { border-color: var(--brun-700); }
+.nav-burger {
+  display: none; background: none; border: 0; cursor: pointer;
+  padding: .5rem; color: var(--brun-800);
+}
+
+/* ---------- 6. BOUTONS ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+  padding: .95rem 1.7rem;
+  font-size: .82rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  text-decoration: none; border: 2px solid var(--brun-800); border-radius: 999px;
+  background: var(--brun-800); color: var(--beige-100);
+  cursor: pointer;
+  transition: transform .18s ease, background .18s, color .18s, box-shadow .18s;
+  box-shadow: 0 3px 0 rgba(46, 31, 20, .18);
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 5px 0 rgba(46, 31, 20, .18); }
+.btn--jaune { background: var(--jaune-400); border-color: var(--jaune-400); color: var(--brun-900); }
+.btn--jaune:hover { background: var(--jaune-500); border-color: var(--jaune-500); }
+.btn--ligne { background: transparent; color: var(--brun-800); }
+.btn--ligne:hover { background: var(--brun-800); color: var(--beige-100); }
+.btn--clair { background: var(--beige-200); border-color: var(--beige-200); color: var(--brun-900); }
+
+/* ---------- 7. TITRES DE SECTION ---------- */
+.eyebrow {
+  display: inline-block;
+  font-size: .72rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--vert); margin-bottom: .9rem;
+}
+.eyebrow--rouge { color: var(--rouge); }
+.titre-section {
+  font-size: clamp(2.1rem, 1.4rem + 3.2vw, 3.9rem);
+  letter-spacing: -.025em;
+  font-variation-settings: "SOFT" 30, "WONK" 1, "opsz" 90;
+}
+.chapo {
+  max-width: 56ch; color: var(--texte-doux);
+  font-size: clamp(1.02rem, 1rem + .3vw, 1.18rem); margin-top: 1.4rem;
+}
+.centre { text-align: center; }
+.centre .chapo { margin-inline: auto; }
+
+/* ---------- 8. PLACEHOLDERS PHOTO ---------- */
+.photo { position: relative; overflow: hidden; background: var(--beige-300); }
+.photo img { width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .35s ease; }
+.photo img.chargee { opacity: 1; }
+.photo__ph {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: .6rem; text-align: center; padding: 1.25rem;
+  background:
+    repeating-linear-gradient(45deg, rgba(107,74,43,.055) 0 12px, transparent 12px 24px),
+    var(--beige-300);
+  border: 2px dashed rgba(107, 74, 43, .35);
+  color: var(--brun-700);
+}
+/* Dès que la vraie photo est chargée, le placeholder disparaît. */
+.photo img.chargee ~ .photo__ph { display: none; }
+.photo__ph svg { opacity: .5; }
+.photo__ph b {
+  font-family: var(--corps); font-size: .68rem; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase;
+}
+.photo__ph span { font-size: .78rem; opacity: .8; word-break: break-word; }
+
+/* ---------- 9. HERO ---------- */
+.hero { position: relative; padding-top: clamp(2.5rem, 6vw, 5rem); padding-bottom: 0; overflow: hidden; }
+.hero::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 45%;
+  background: var(--beige-200); z-index: -1;
+}
+.hero__grid {
+  display: grid; grid-template-columns: 1.05fr .95fr;
+  gap: clamp(2rem, 5vw, 4.5rem); align-items: end;
+}
+.hero__texte { padding-bottom: clamp(3rem, 7vw, 6rem); }
+.hero__titre {
+  font-size: clamp(2.9rem, 1.3rem + 6.4vw, 5.6rem);
+  letter-spacing: -.035em;
+  font-variation-settings: "SOFT" 40, "WONK" 1, "opsz" 120;
+}
+.hero__titre em {
+  font-style: italic; color: var(--jaune-600);
+  font-variation-settings: "SOFT" 60, "WONK" 1;
+}
+.hero__accroche { font-size: clamp(1.05rem, 1rem + .45vw, 1.28rem); max-width: 44ch; margin-top: 1.6rem; color: var(--texte-doux); }
+.hero__cta { display: flex; flex-wrap: wrap; gap: .9rem; margin-top: 2.2rem; }
+.hero__visuel { position: relative; }
+.hero__photo { aspect-ratio: 4 / 5; border-radius: 260px 260px 8px 8px; }
+.hero__cadre {
+  position: absolute; inset: 18px -18px -18px 18px; z-index: -1;
+  border: 2px solid var(--jaune-500); border-radius: 260px 260px 8px 8px;
+}
+
+/* Pastille rotative "signature" */
+.pastille {
+  position: absolute; z-index: 3;
+  width: clamp(96px, 12vw, 132px); aspect-ratio: 1;
+  display: grid; place-items: center; text-align: center;
+  background: var(--jaune-400); color: var(--brun-900);
+  border-radius: 50%; transform: rotate(-11deg);
+  box-shadow: 0 6px 0 rgba(46, 31, 20, .14);
+  font-family: var(--display); font-weight: 700; line-height: 1.1;
+  font-size: clamp(.78rem, .6rem + .5vw, .95rem);
+  padding: .8rem;
+}
+.hero .pastille { left: -14px; bottom: 34px; }
+
+/* Bandeau défilant sous le hero */
+.bandeau {
+  background: var(--brun-800); color: var(--beige-200);
+  padding-block: .85rem; overflow: hidden; white-space: nowrap;
+}
+.bandeau__piste {
+  display: inline-flex; gap: 2.5rem; align-items: center;
+  animation: defile 34s linear infinite;
+  font-family: var(--display); font-size: 1rem; letter-spacing: .04em;
+  padding-right: 2.5rem;
+}
+.bandeau__piste span { display: inline-flex; align-items: center; gap: 2.5rem; }
+.bandeau__piste i { font-style: normal; color: var(--jaune-400); }
+@keyframes defile { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .bandeau__piste { animation: none; } }
+
+/* ---------- 10. SPÉCIALITÉS ---------- */
+.grille-cards {
+  display: grid; gap: clamp(1.5rem, 3vw, 2.4rem);
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+.card { position: relative; }
+.card__photo { aspect-ratio: 4 / 3.4; border-radius: var(--radius); }
+.card__badge {
+  position: absolute; top: -12px; right: 14px; z-index: 2;
+  background: var(--vert); color: #fff;
+  font-size: .64rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  padding: .42rem .8rem; border-radius: 999px; transform: rotate(3deg);
+}
+.card h3 {
+  font-size: 1.42rem; margin-top: 1.15rem; letter-spacing: -.015em;
+  font-variation-settings: "SOFT" 30, "WONK" 1;
+}
+.card p { color: var(--texte-doux); margin-top: .5rem; font-size: .95rem; }
+
+/* ---------- 11. DEUX SERVICES ---------- */
+.services { background: var(--beige-200); }
+.services__grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: clamp(1.5rem, 3vw, 2.5rem); margin-top: clamp(2.5rem, 5vw, 3.5rem);
+}
+.service {
+  background: var(--beige-100); border: 1px solid rgba(107, 74, 43, .16);
+  border-radius: var(--radius); padding: clamp(1.6rem, 3vw, 2.4rem);
+  display: flex; flex-direction: column;
+}
+.service__num {
+  font-family: var(--display); font-size: 2.6rem; line-height: 1;
+  color: var(--jaune-500); font-variation-settings: "WONK" 1;
+}
+.service h3 { font-size: 1.55rem; margin-top: .6rem; }
+.service p { color: var(--texte-doux); margin-top: .8rem; }
+.service ul { margin-top: .4rem; margin-bottom: 1.4rem; }
+.service li {
+  position: relative; padding-left: 1.5rem; margin-bottom: .45rem;
+  font-size: .95rem; color: var(--texte-doux);
+}
+.service li::before {
+  content: ""; position: absolute; left: 0; top: .62em;
+  width: 8px; height: 8px; border-radius: 50%; background: var(--jaune-500);
+}
+.service .btn { margin-top: auto; align-self: flex-start; }
+
+/* ---------- 12. LA CARTE (panneau brun) ---------- */
+.carte { background: var(--brun-900); color: var(--beige-200); }
+.carte .titre-section, .carte h3 { color: var(--beige-100); }
+.carte .chapo { color: rgba(244, 231, 209, .72); }
+.carte .eyebrow { color: var(--jaune-400); }
+.carte-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  gap: clamp(2.2rem, 4vw, 3.5rem) clamp(2.5rem, 5vw, 4.5rem);
+  margin-top: clamp(2.8rem, 5vw, 4rem);
+}
+.categorie__entete {
+  display: flex; align-items: baseline; gap: .8rem;
+  padding-bottom: .7rem; border-bottom: 1px solid rgba(244, 231, 209, .22);
+}
+.categorie__entete h3 { font-size: 1.7rem; letter-spacing: -.015em; font-variation-settings: "SOFT" 40, "WONK" 1; }
+.categorie__entete em {
+  font-style: normal; font-family: var(--corps);
+  font-size: .68rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--jaune-400);
+}
+.plats { margin-top: 1.4rem; }
+.plat { padding-block: .85rem; border-bottom: 1px dotted rgba(244, 231, 209, .2); }
+.plat:last-child { border-bottom: 0; }
+.plat__ligne { display: flex; align-items: baseline; gap: .6rem; }
+.plat__nom { font-family: var(--display); font-size: 1.08rem; font-weight: 600; }
+.plat__points { flex: 1; border-bottom: 1px dotted rgba(244, 231, 209, .35); transform: translateY(-3px); }
+.plat__prix { font-family: var(--display); font-size: 1.05rem; color: var(--jaune-400); white-space: nowrap; }
+.plat__desc { font-size: .89rem; color: rgba(244, 231, 209, .6); margin: .2rem 0 0; }
+.plat__tag {
+  display: inline-block; margin-left: .55rem; vertical-align: 2px;
+  font-size: .58rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--jaune-400); border: 1px solid rgba(232, 168, 28, .5);
+  padding: .12rem .45rem; border-radius: 999px;
+}
+.carte__note {
+  margin-top: clamp(2.5rem, 4vw, 3.5rem); text-align: center;
+  font-size: .88rem; color: rgba(244, 231, 209, .55);
+}
+
+/* ---------- 13. CARTE DES VINS ---------- */
+.vins-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: clamp(1.5rem, 3vw, 2.2rem); margin-top: clamp(2.5rem, 5vw, 3.5rem);
+}
+.vin-cat {
+  background: var(--beige-200); border-radius: var(--radius);
+  padding: clamp(1.5rem, 3vw, 2rem);
+  border-top: 4px solid var(--jaune-500);
+}
+.vin-cat:nth-child(2) { border-top-color: var(--vert); }
+.vin-cat:nth-child(3) { border-top-color: var(--rouge); }
+.vin-cat h3 { font-size: 1.4rem; font-variation-settings: "SOFT" 40, "WONK" 1; }
+.vin-cat > em {
+  display: block; font-style: italic; font-family: var(--display);
+  color: var(--texte-doux); font-size: .95rem; margin-bottom: 1.2rem;
+}
+.bouteille { padding-block: .7rem; border-bottom: 1px dotted rgba(107, 74, 43, .28); }
+.bouteille:last-child { border-bottom: 0; }
+.bouteille__ligne { display: flex; align-items: baseline; gap: .6rem; }
+.bouteille__nom { font-weight: 700; font-size: .95rem; }
+.bouteille__prix { margin-left: auto; font-family: var(--display); color: var(--brun-700); white-space: nowrap; }
+.bouteille__region { font-size: .82rem; color: var(--texte-doux); }
+
+/* ---------- 14. CONTACT / RÉSERVATION ---------- */
+.contact { background: var(--beige-200); }
+.contact__grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 4rem); align-items: center;
+}
+.contact__infos li { display: flex; gap: 1rem; padding-block: .75rem; border-bottom: 1px dotted rgba(107,74,43,.28); }
+.contact__infos li:last-child { border-bottom: 0; }
+.contact__infos b {
+  min-width: 90px; font-size: .7rem; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--texte-doux); padding-top: .25rem;
+}
+.contact__photo { aspect-ratio: 4 / 3; border-radius: var(--radius); }
+
+/* ---------- 15. FORMULAIRE ---------- */
+.formulaire {
+  background: var(--beige-100); border: 1px solid rgba(107, 74, 43, .18);
+  border-radius: var(--radius); padding: clamp(1.6rem, 4vw, 2.8rem);
+}
+.champs { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem 1.3rem; }
+.champ { display: flex; flex-direction: column; gap: .4rem; }
+.champ--large { grid-column: 1 / -1; }
+.champ label {
+  font-size: .7rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--texte-doux);
+}
+.champ input, .champ select, .champ textarea {
+  font: inherit; font-size: .98rem; color: var(--texte);
+  padding: .8rem .95rem;
+  background: #fff; border: 1px solid rgba(107, 74, 43, .3);
+  border-radius: var(--radius);
+  transition: border-color .18s, box-shadow .18s;
+}
+.champ input:focus, .champ select:focus, .champ textarea:focus {
+  outline: none; border-color: var(--jaune-500);
+  box-shadow: 0 0 0 3px rgba(232, 168, 28, .22);
+}
+.champ textarea { resize: vertical; min-height: 130px; }
+.formulaire .btn { margin-top: 1.6rem; }
+.formulaire__note { font-size: .8rem; color: var(--texte-doux); margin-top: 1rem; }
+
+/* ---------- 16. GALERIE ---------- */
+.galerie {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.1rem; margin-top: clamp(2.5rem, 5vw, 3.5rem);
+}
+.galerie figure { margin: 0; }
+.galerie .photo { aspect-ratio: 1; border-radius: var(--radius); }
+.galerie figure:nth-child(3n+1) .photo { aspect-ratio: 4 / 5; }
+.galerie figcaption {
+  margin-top: .6rem; font-size: .72rem; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--texte-doux);
+}
+
+/* ---------- 17. CHIFFRES CLÉS ---------- */
+.chiffres {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 1.5rem; margin-top: clamp(2.5rem, 5vw, 3.5rem);
+}
+.chiffre { text-align: center; padding: 1.6rem 1rem; background: var(--beige-200); border-radius: var(--radius); }
+.chiffre b {
+  display: block; font-family: var(--display); font-size: 2.5rem; line-height: 1;
+  color: var(--brun-800); font-variation-settings: "WONK" 1, "SOFT" 40;
+}
+.chiffre span {
+  display: block; margin-top: .5rem; font-size: .74rem; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--texte-doux);
+}
+
+/* ---------- 18. PIED DE PAGE ---------- */
+.pied { background: var(--brun-900); color: var(--beige-200); padding-block: clamp(3.5rem, 7vw, 5rem) 2rem; }
+.pied__grid {
+  display: grid; grid-template-columns: 1.4fr 1fr 1fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+}
+.pied h4 {
+  font-family: var(--corps); font-size: .7rem; font-weight: 700;
+  letter-spacing: .2em; text-transform: uppercase; color: var(--jaune-400);
+  margin-bottom: 1.1rem;
+}
+.pied .logo { color: var(--beige-100); font-size: 1.9rem; }
+.pied .logo small { color: rgba(244, 231, 209, .6); }
+.pied p, .pied li { color: rgba(244, 231, 209, .75); font-size: .93rem; }
+.pied a { text-decoration: none; }
+.pied a:hover { color: var(--jaune-400); }
+.horaire { display: flex; justify-content: space-between; gap: 1rem; padding-block: .35rem; font-size: .88rem; }
+.horaire span:first-child { color: var(--beige-200); }
+.reseaux { display: flex; gap: .7rem; margin-top: 1.4rem; }
+.reseaux a {
+  width: 40px; height: 40px; display: grid; place-items: center;
+  border: 1px solid rgba(244, 231, 209, .3); border-radius: 50%;
+  transition: background .2s, color .2s, border-color .2s;
+}
+.reseaux a:hover { background: var(--jaune-400); border-color: var(--jaune-400); color: var(--brun-900); }
+.pied__bas {
+  margin-top: clamp(2.5rem, 5vw, 3.5rem); padding-top: 1.5rem;
+  border-top: 1px solid rgba(244, 231, 209, .16);
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem;
+  font-size: .8rem; color: rgba(244, 231, 209, .55);
+}
+
+/* ---------- 19. RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  .hero__grid { grid-template-columns: 1fr; }
+  .hero__texte { padding-bottom: 2.5rem; }
+  .hero__visuel { max-width: 480px; margin-inline: auto; width: 100%; }
+  .hero::after { height: 32%; }
+  .contact__grid { grid-template-columns: 1fr; }
+  .pied__grid { grid-template-columns: 1fr 1fr; }
+  .pied__grid > :first-child { grid-column: 1 / -1; }
+}
+@media (max-width: 720px) {
+  .nav-burger { display: block; }
+  .nav {
+    position: absolute; top: 100%; left: 0; right: 0;
+    flex-direction: column; align-items: stretch; gap: 0;
+    background: var(--beige-100);
+    border-bottom: 1px solid rgba(107, 74, 43, .18);
+    padding: .5rem var(--gutter) 1.25rem;
+    display: none;
+  }
+  .nav.ouvert { display: flex; }
+  .nav a { padding-block: .85rem; border-bottom: 1px solid rgba(107, 74, 43, .12); }
+  .nav .btn { margin-top: .9rem; border-bottom: 0; }
+  .champs { grid-template-columns: 1fr; }
+  .hero .pastille { left: auto; right: -6px; bottom: -22px; }
+}
+@media (max-width: 560px) {
+  .pied__grid { grid-template-columns: 1fr; }
+  .btn { width: 100%; }
+  .hero__cta .btn { width: 100%; }
+  .service .btn { width: 100%; }
+}
+
+/* ---------- 20. APPARITION AU SCROLL ---------- */
+.apparait { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+.apparait.visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .apparait { opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
+}
