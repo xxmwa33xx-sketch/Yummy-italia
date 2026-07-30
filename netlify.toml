@@ -1,0 +1,54 @@
+# ============================================================
+#  Configuration Netlify — Yummy Italia
+#  Site statique : aucune commande de build nécessaire.
+# ============================================================
+
+[build]
+  # Le site est publié tel quel depuis la racine du dépôt.
+  publish = "."
+  command = ""
+
+# ---------- En-têtes de sécurité et de performance ----------
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# Mise en cache longue durée pour les assets statiques
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# ---------- Redirections ----------
+# Redirige le domaine sans www vers le domaine principal (à activer
+# une fois le domaine yummy-italia.com branché sur Netlify).
+# [[redirects]]
+#   from = "https://www.yummy-italia.com/*"
+#   to = "https://yummy-italia.com/:splat"
+#   status = 301
+#   force = true
+
+# Ancienne URL éventuelle vers la page événements
+[[redirects]]
+  from = "/traiteur"
+  to = "/evenements.html"
+  status = 301
+
+[[redirects]]
+  from = "/evenements"
+  to = "/evenements.html"
+  status = 301
