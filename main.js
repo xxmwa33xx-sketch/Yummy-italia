@@ -21,14 +21,14 @@
 
   /**
    * Génère un bloc photo.
-   * Si le fichier n'existe pas encore dans /images/, un placeholder
+   * Si le fichier n'existe pas encore dans le dépôt, un placeholder
    * clairement identifié s'affiche automatiquement à la place.
    */
   function photo(fichier, legende, classe) {
     const f = echap(fichier);
     return `
       <div class="photo ${classe || ""}">
-        <img src="images/${f}" alt="${echap(legende)}" loading="lazy"
+        <img src="${f}" alt="${echap(legende)}" loading="lazy"
              onload="this.classList.add('chargee')">
         <div class="photo__ph">
           <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
@@ -37,7 +37,7 @@
             <path d="M21 16l-5-5-5.5 5.5L8 14l-5 5"/>
           </svg>
           <b>Photo à ajouter</b>
-          <span>images/${f}</span>
+          <span>${f}</span>
         </div>
       </div>`;
   }

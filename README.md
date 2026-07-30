@@ -8,28 +8,31 @@ fichier, on modifie, on enregistre. C'est tout.
 
 ## 1. Structure du projet
 
+Tous les fichiers sont à la racine, dans un seul dossier — rien n'est rangé
+dans des sous-dossiers. C'est volontaire : ça évite toute erreur de chemin
+lors des mises en ligne.
+
 ```
 yummy-italia/
-├── index.html          ← Page d'accueil (hero, spécialités, services, carte, vins, contact)
-├── evenements.html     ← Page Événements & Traiteur (+ formulaire de devis)
-├── merci.html          ← Page de confirmation après envoi du formulaire
-├── netlify.toml        ← Configuration du déploiement Netlify
-├── css/
-│   └── style.css       ← Toute la mise en forme du site
-├── js/
-│   ├── menu-data.js    ← ⭐ TOUT LE CONTENU (menu, vins, coordonnées, photos)
-│   └── main.js         ← Affichage automatique du contenu (à ne pas toucher)
-└── images/             ← Toutes les photos du site
+├── index.html       ← Page d'accueil (hero, spécialités, services, carte, vins, contact)
+├── evenements.html  ← Page Événements & Traiteur (+ formulaire de devis)
+├── merci.html       ← Page de confirmation après envoi du formulaire
+├── menu-data.js     ← ⭐ TOUT LE CONTENU (menu, vins, coordonnées, photos)
+├── main.js          ← Affichage automatique du contenu (à ne pas toucher)
+├── style.css        ← Toute la mise en forme du site
+├── favicon.svg      ← Icône affichée dans l'onglet du navigateur
+├── netlify.toml     ← Configuration du déploiement Netlify
+└── (les photos .jpg viennent ici, à côté des autres fichiers)
 ```
 
 **En pratique, 90 % des mises à jour se font dans un seul fichier :
-`js/menu-data.js`.**
+`menu-data.js`.**
 
 ---
 
 ## 2. Ajouter ou modifier un plat
 
-Ouvrir `js/menu-data.js`, chercher la section `menu:`, puis modifier les lignes.
+Ouvrir `menu-data.js`, chercher la section `menu:`, puis modifier les lignes.
 Chaque plat ressemble à ceci :
 
 ```js
@@ -51,7 +54,7 @@ Les mentions `[À COMPLÉTER]` présentes partout sont là pour être remplacée
 
 ## 3. Ajouter ou modifier un vin
 
-Même principe, dans la section `vins:` de `js/menu-data.js` :
+Même principe, dans la section `vins:` de `menu-data.js` :
 
 ```js
 { nom: "Barbera d'Alba", region: "Piémont — DOC", prix: "32 €" },
@@ -63,14 +66,15 @@ Les catégories existantes sont : Vins rouges, Vins blancs, Vins rosés, Pétill
 
 ## 4. Ajouter les photos
 
-Toutes les photos vont dans le dossier `images/`. **Il n'y a rien à modifier
+Les photos se déposent à la racine du projet, à côté des fichiers HTML.
+**Il n'y a rien à modifier
 dans le code** : chaque emplacement photo affiche un bloc placeholder tant que
 le fichier n'existe pas, et affiche automatiquement la photo dès qu'elle est
 déposée au bon nom.
 
 Le nom de fichier attendu est écrit **directement dans le placeholder** sur le
-site (par exemple `images/hero-restaurant.jpg`). Il suffit de nommer sa photo
-comme indiqué et de la déposer dans `images/`.
+site (par exemple `hero-restaurant.jpg`). Il suffit de nommer sa photo
+comme indiqué et de la déposer dans le dossier du projet.
 
 ### Photos attendues
 
@@ -92,7 +96,7 @@ comme indiqué et de la déposer dans `images/`.
 
 Pour **changer le nom d'une photo** ou en **ajouter une nouvelle** (spécialités,
 galerie), il suffit de modifier le champ `image:` correspondant dans
-`js/menu-data.js`.
+`menu-data.js`.
 
 ### Conseils techniques
 - Format **JPG**, largeur **1600 px maximum**, poids **< 300 Ko** par photo
@@ -103,7 +107,7 @@ galerie), il suffit de modifier le champ `image:` correspondant dans
 
 ## 5. Modifier les coordonnées et les horaires
 
-Toujours dans `js/menu-data.js`, section `infos:` en haut du fichier :
+Toujours dans `menu-data.js`, section `infos:` en haut du fichier :
 adresse, téléphone, e-mail, liens Instagram / Facebook et horaires.
 Ces informations sont utilisées automatiquement partout sur le site
 (pied de page, section contact, boutons d'appel).
@@ -178,5 +182,5 @@ Chaque `git push` redéclenche automatiquement le déploiement sur Netlify.
   sous chaque titre de section et en séparateur.
 - **Responsive** — conçu mobile-first, testé de 360 px à 1600 px.
 
-Toutes les couleurs sont regroupées en haut de `css/style.css` (section
+Toutes les couleurs sont regroupées en haut de `style.css` (section
 « VARIABLES ») : les modifier là les change partout sur le site.
