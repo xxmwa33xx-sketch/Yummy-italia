@@ -546,40 +546,6 @@ body::before {
 .encart__action { display: flex; flex-direction: column; gap: .8rem; align-items: flex-start; }
 .encart__tel { font-family: var(--display); font-size: 1.05rem; color: var(--brun-700); }
 
-/* Groupes & événements */
-.groupes { background: var(--beige-200); }
-.capacites {
-  display: grid; grid-template-columns: 1fr 1.15fr;
-  gap: clamp(1.4rem, 3vw, 2.2rem); margin-top: clamp(2.5rem, 5vw, 3.5rem);
-}
-.capacite {
-  padding: 1.4rem 0 0;
-  border-top: 3px solid var(--vert);
-}
-.capacite--accent { border-top-color: var(--rouge); }
-.capacite__nombre {
-  display: block; font-family: var(--display);
-  font-size: clamp(1.3rem, 1.1rem + .9vw, 1.8rem); letter-spacing: -.015em;
-  font-variation-settings: "SOFT" 40, "WONK" 1;
-}
-.capacite--accent .capacite__nombre { color: var(--rouge); }
-.capacite p { margin: .8rem 0 0; color: var(--texte-doux); }
-
-.pastilles {
-  display: flex; flex-wrap: wrap; gap: .6rem;
-  margin-top: clamp(1.8rem, 3.5vw, 2.5rem);
-}
-.pastilles li {
-  font-size: .82rem; font-weight: 600;
-  padding: .5rem 1rem; border-radius: 999px;
-  background: var(--beige-100); border: 1px solid rgba(107, 74, 43, .22);
-  color: var(--texte-doux);
-}
-.pastilles li:nth-child(3n+1) { border-color: rgba(63, 107, 65, .45); }
-.pastilles li:nth-child(3n+2) { border-color: rgba(166, 43, 33, .38); }
-.pastilles li:nth-child(3n)   { border-color: rgba(232, 168, 28, .5); }
-.groupes__cta { display: flex; flex-wrap: wrap; gap: .9rem; margin-top: clamp(2rem, 4vw, 2.8rem); }
-
 /* ---------- 11. LISTES DE SERVICES ----------
    Colonnes séparées par un simple filet, sans fond ni bordure :
    plus éditorial, moins « template ». */
@@ -933,7 +899,6 @@ body::before {
   .grand-bloc--inverse .grand-bloc__photo,
   .spec--inverse .spec__photo { order: 0; }
   .grand-bloc__photo .photo { height: auto; min-height: 0; aspect-ratio: 4 / 3; }
-  .capacites { grid-template-columns: 1fr; }
   .duo, .duo--inverse { grid-template-columns: 1fr; }
   .duo--inverse .duo__photo { order: 0; }
   .duo__photo { max-width: 520px; }
@@ -973,7 +938,7 @@ body::before {
 @media (max-width: 560px) {
   .pied__grid { grid-template-columns: 1fr; }
   .btn { width: 100%; }
-  .groupes__cta .btn, .encart__action .btn, .contact__boutons .btn { width: 100%; }
+  .encart__action .btn, .contact__boutons .btn { width: 100%; }
   .contact__boutons { align-items: stretch; }
   .hero__cta .btn { width: 100%; }
   .service .btn { width: 100%; }
@@ -1043,7 +1008,6 @@ body::before {
 /* Les images de fond, section par section */
 .fond--hero      { background-image: url("fond-hero.jpg");      background-position: center 58%; }
 .fond--cuisine   { background-image: url("fond-cuisine.jpg");   background-position: center 55%; }
-.fond--capacites { background-image: url("fond-capacites.jpg"); background-position: center 50%; }
 .fond--salle     { background-image: url("fond-salle.jpg");     background-position: center 50%; }
 .fond--cta       { background-image: url("fond-cta.jpg");       background-position: center 46%; }
 
@@ -1120,73 +1084,7 @@ body::before {
 }
 .colonne p { margin-top: .6rem; font-size: .97rem; }
 
-/* ---------- 3. Les deux formats : panneaux photo côte à côte ---------- */
-.panneaux {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 3px; background: var(--beige-300);
-}
-.panneau {
-  position: relative; isolation: isolate;
-  display: grid; align-content: end;
-  min-height: clamp(420px, 52vw, 620px);
-  padding: clamp(2rem, 4vw, 3.2rem);
-  color: var(--creme);
-  background-size: cover; background-position: center;
-  background-color: var(--brun-900);
-}
-.panneau::before {
-  content: ""; position: absolute; inset: 0; z-index: -1;
-  background: linear-gradient(to bottom,
-    rgba(28, 15, 7, .35) 0%, rgba(28, 15, 7, .72) 55%, rgba(28, 15, 7, .93) 100%);
-}
-.panneau--buffet   { background-image: url("fond-buffet.jpg");   background-position: center 55%; }
-.panneau--assiette { background-image: url("fond-assiette.jpg"); background-position: center 60%; }
-.panneau__num {
-  font-family: var(--display); font-size: .78rem; letter-spacing: .2em;
-  text-transform: uppercase; color: var(--jaune-400); margin-bottom: .5rem;
-}
-.panneau h3 {
-  font-family: var(--display); color: var(--creme);
-  font-size: clamp(1.6rem, 1.3rem + 1.3vw, 2.3rem); letter-spacing: -.025em;
-  font-variation-settings: "SOFT" 45, "WONK" 1;
-}
-.panneau h3::after {
-  content: ""; display: block; width: 56px; height: 3px; margin-top: .9rem;
-  background: var(--vert-clair);
-}
-.panneau--assiette h3::after { background: var(--rouge); }
-.panneau p {
-  margin-top: 1rem; color: rgba(255, 255, 255, .88);
-  font-size: .98rem; max-width: 42ch;
-}
-
-/* ---------- 4. Capacité et délais sur fond photo ---------- */
-.fond .capacite { border-top-color: var(--vert-clair); }
-.fond .capacite--accent { border-top-color: var(--rouge); }
-.fond .capacite__nombre { color: var(--creme); }
-.fond .capacite--accent .capacite__nombre { color: var(--jaune-400); }
-.fond .capacite p { color: rgba(255, 255, 255, .86); }
-.fond .capacite b { color: var(--creme); }
-
-/* ---------- 5. Les étapes du déroulé ---------- */
-.etapes {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: clamp(2rem, 4vw, 3rem);
-  margin-top: clamp(2.4rem, 4.5vw, 3.4rem);
-  counter-reset: etape;
-}
-.etape { position: relative; padding-top: 1.4rem; border-top: 1px solid rgba(107, 74, 43, .3); }
-.etape__num {
-  font-family: var(--display); font-size: 2.6rem; line-height: 1;
-  color: var(--beige-400); font-variation-settings: "SOFT" 60, "WONK" 1;
-}
-.etape h3 {
-  margin-top: .5rem; font-size: 1.25rem; letter-spacing: -.02em;
-  font-variation-settings: "SOFT" 40, "WONK" 1;
-}
-.etape p { margin-top: .6rem; color: var(--texte-doux); font-size: .96rem; }
-
-/* ---------- 6. L'appel final ---------- */
+/* ---------- 3. L'appel final ---------- */
 .appel {
   display: grid; place-items: center; text-align: center;
   min-height: clamp(380px, 46vw, 520px);
@@ -1203,10 +1101,6 @@ body::before {
 .appel .hero__cta { justify-content: center; margin-top: 2rem; }
 
 /* ---------- Adaptations mobiles ---------- */
-@media (max-width: 900px) {
-  .panneaux { grid-template-columns: 1fr; }
-  .panneau { min-height: clamp(360px, 78vw, 460px); }
-}
 @media (max-width: 620px) {
   .reperes { grid-template-columns: 1fr; }
   .evt-hero { min-height: auto; padding-block: 6.5rem 3rem; }

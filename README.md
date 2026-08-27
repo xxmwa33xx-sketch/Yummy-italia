@@ -174,16 +174,12 @@ lisible. Ces fonds portent tous le préfixe `fond-`.
 |---|---|
 | `fond-hero.jpg` | Le hero — la façade et la terrasse |
 | `fond-cuisine.jpg` | « Un repas italien pour votre groupe » — le comptoir garni |
-| `fond-buffet.jpg` | Panneau « Buffet & self-service » |
-| `fond-assiette.jpg` | Panneau « Service en assiette » |
-| `fond-capacites.jpg` | « Capacité et délais » — la terrasse |
 | `fond-salle.jpg` | « Parlons de votre événement » — la salle |
 | `fond-cta.jpg` | « Passez nous voir » — la façade et l'enseigne |
 
 Pour changer l'un de ces fonds : déposez la nouvelle photo au même nom de
-fichier. Les bandes horizontales fonctionnent mieux avec une photo **au format
-paysage** (16/9), les deux panneaux avec une photo **verticale** (3/4). Si le
-cadrage tombe mal, ajustez la ligne correspondante dans `style.css`, section 18 :
+fichier. Ces bandes fonctionnent mieux avec une photo **au format paysage** (16/9).
+Si le cadrage tombe mal, ajustez la ligne correspondante dans `style.css`, section 18 :
 `background-position: center 55%` — un pourcentage plus petit remonte l'image,
 un plus grand la descend.
 
@@ -192,7 +188,8 @@ d'accueil, elles peuvent servir de remplacement : `comptoir-pates.jpg`,
 `comptoir-poulpe.jpg`, `comptoir-arancini.jpg`, `plat-antipasti.jpg`,
 `plat-poisson.jpg`, `plat-charcuterie.jpg`, `plat-burrata.jpg`,
 `plat-pasta-couteaux.jpg`, `plat-filet.jpg`, `legumes-grilles.jpg`,
-`lasagne-blanche.jpg`, `tiramisu-service.jpg`, `pates-ragu.jpg`.
+`lasagne-blanche.jpg`, `tiramisu-service.jpg`, `pates-ragu.jpg`,
+`fond-buffet.jpg`, `fond-assiette.jpg`, `fond-capacites.jpg`.
 
 ### Conseils techniques
 - Format **JPG**, largeur **1600 px maximum**, poids **< 300 Ko** par photo
