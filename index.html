@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Yummy Italia — Restaurant &amp; Traiteur italien à Bruxelles</title>
-  <meta name="description" content="Yummy Italia, trattoria familiale à Bruxelles : pâtes fraîches faites maison, desserts frais du jour. Sur place, à emporter ou en traiteur pour vos événements.">
+  <title>Yummy Italia — Restaurant, comptoir &amp; épicerie italienne à Schaerbeek</title>
+  <meta name="description" content="Yummy Italia, Avenue Eugène Plasky à Schaerbeek : cuisine italienne à emporter au comptoir ou à table. Pâtes, lasagne et tiramisu maison, sandwichs italiens, épicerie et vins. Événements jusqu'à 50 personnes et au-delà.">
 
-  <meta property="og:title" content="Yummy Italia — Restaurant & Traiteur italien à Bruxelles">
-  <meta property="og:description" content="Pâtes fraîches faites maison, produits frais, cuisine italienne authentique. Restaurant et service traiteur à Bruxelles.">
+  <meta property="og:title" content="Yummy Italia — Restaurant, comptoir & épicerie italienne">
+  <meta property="og:description" content="Pâtes, lasagne, tiramisu, sandwichs italiens. À emporter au comptoir ou à table, à Schaerbeek.">
   <meta property="og:type" content="restaurant">
   <meta property="og:locale" content="fr_BE">
   <meta property="og:image" content="og-image.jpg">
@@ -17,16 +17,60 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..800,0..100,0..1;1,9..144,400..800,0..100,0..1&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+
+  <!-- Données structurées : identité et informations pratiques du restaurant.
+       Elles reprennent exactement ce qui est affiché sur le site. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Yummy Italia",
+    "description": "Restaurant, comptoir traiteur et épicerie italienne à Schaerbeek, Bruxelles.",
+    "servesCuisine": "Italienne",
+    "url": "https://yummy-italia.com/",
+    "telephone": "+3223185301",
+    "priceRange": "€€",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Avenue Eugène Plasky 81",
+      "postalCode": "1030",
+      "addressLocality": "Schaerbeek",
+      "addressRegion": "Bruxelles",
+      "addressCountry": "BE"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "10:00",
+        "closes": "22:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "10:00",
+        "closes": "19:00"
+      }
+    ],
+    "hasMenu": "https://yummy-italia.com/#carte",
+    "acceptsReservations": "https://yummy-italia.com/#contact",
+    "makesOffer": {
+      "@type": "Offer",
+      "name": "Service traiteur italien pour événements",
+      "url": "https://yummy-italia.com/evenements.html",
+      "areaServed": { "@type": "City", "name": "Bruxelles" }
+    }
+  }
+  </script>
 </head>
 <body>
 
-  <!-- Élément signature : le ruban « tagliatelle » en haut de page -->
-  <span class="ruban ruban--haut" aria-hidden="true"></span>
+  <span class="filet-haut" aria-hidden="true"></span>
 
   <!-- ============ EN-TÊTE ============ -->
   <header class="entete">
     <div class="wrap entete__inner">
-      <a class="logo" href="index.html">Yummy&nbsp;<span>Italia</span> <small>Bruxelles</small></a>
+      <a class="logo" href="index.html">Yummy&nbsp;<span>Italia</span> <small>Épicerie italienne</small></a>
 
       <button class="nav-burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-principale">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
@@ -35,11 +79,12 @@
       </button>
 
       <nav class="nav" id="nav-principale" aria-label="Navigation principale">
+        <a href="#services">Services</a>
+        <a href="#carte">La carte</a>
         <a href="#specialites">Spécialités</a>
-        <a href="#menu">La carte</a>
-        <a href="#vins">Les vins</a>
-        <a href="evenements.html">Événements &amp; Traiteur</a>
-        <a href="#contact" class="btn btn--jaune">Réserver</a>
+        <a href="#epicerie">Épicerie</a>
+        <a href="evenements.html">Événements</a>
+        <a href="tel:" data-lien="telephone" class="btn btn--jaune">Nous appeler</a>
       </nav>
     </div>
   </header>
@@ -50,195 +95,335 @@
     <section class="hero">
       <div class="wrap hero__grid">
         <div class="hero__texte">
-          <span class="eyebrow">Trattoria familiale · Bruxelles</span>
-          <h1 class="hero__titre">La cuisine<br>italienne, <em>faite<br>à la maison.</em></h1>
+          <span class="eyebrow">Avenue Eugène Plasky · Schaerbeek</span>
+          <h1 class="hero__titre">Une adresse<br>italienne, <em>et tout<br>ce qui va avec.</em></h1>
           <p class="hero__accroche">
-            Des pâtes fraîches roulées chaque matin, des produits choisis chez nos
-            producteurs, des desserts préparés le jour même. Rien de congelé, rien de pressé —
-            juste la vraie cuisine italienne, comme chez nous.
+            Le comptoir pour emporter, la salle pour s'attabler, les rayons pour
+            repartir avec une bouteille. Chez Yummy Italia, la cuisine se fait
+            sur place, tous les jours, et change au fil des arrivages.
           </p>
           <div class="hero__cta">
-            <a href="#contact" class="btn btn--jaune">Réserver une table</a>
-            <a href="#contact" class="btn btn--ligne">Commander à emporter</a>
+            <a href="#carte" class="btn btn--jaune">Découvrir la carte</a>
+            <a href="tel:" data-lien="telephone" class="btn btn--ligne">Nous appeler</a>
+          </div>
+
+          <div class="hero__reperes">
+            <div class="hero__repere"><b>Sur place</b>Salle &amp; terrasse</div>
+            <div class="hero__repere"><b>À emporter</b>Comptoir traiteur</div>
+            <div class="hero__repere"><b>Épicerie</b>Produits &amp; vins</div>
           </div>
         </div>
 
         <div class="hero__visuel">
-          <div class="hero__cadre" aria-hidden="true"></div>
-          <div class="photo hero__photo">
-            <img src="hero-restaurant.jpg" alt="Salle du restaurant Yummy Italia" onload="this.classList.add('chargee')">
-            <div class="photo__ph">
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-                <rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.6"/>
-                <path d="M21 16l-5-5-5.5 5.5L8 14l-5 5"/>
-              </svg>
-              <b>Photo à ajouter</b>
-              <span>hero-restaurant.jpg</span>
-            </div>
+          <div class="arche-contour arche-contour--vert" aria-hidden="true"></div>
+          <div class="arche-contour" aria-hidden="true"></div>
+          <div class="arche">
+            <img src="salle-interieur.jpg" alt="La salle de Yummy Italia : tables, cave à vins et comptoir traiteur" onerror="this.classList.add('introuvable')">
           </div>
-          <div class="pastille">Pâtes<br>fraîches<br>du jour</div>
+          <div class="pastille">Cucina<br>italiana</div>
         </div>
       </div>
     </section>
 
-    <!-- Bandeau défilant -->
-    <div class="bandeau" aria-hidden="true">
-      <div class="bandeau__piste">
-        <span>
-          Pâtes fraîches faites maison <i>&#9679;</i> Produits frais de saison <i>&#9679;</i>
-          Desserts du jour <i>&#9679;</i> Sur place ou à emporter <i>&#9679;</i>
-          Traiteur jusqu'à 50 personnes <i>&#9679;</i> Toute la région bruxelloise <i>&#9679;</i>
-        </span>
-        <span>
-          Pâtes fraîches faites maison <i>&#9679;</i> Produits frais de saison <i>&#9679;</i>
-          Desserts du jour <i>&#9679;</i> Sur place ou à emporter <i>&#9679;</i>
-          Traiteur jusqu'à 50 personnes <i>&#9679;</i> Toute la région bruxelloise <i>&#9679;</i>
-        </span>
-      </div>
-    </div>
-
-    <!-- ============ 2. SPÉCIALITÉS DU CHEF ============ -->
-    <section class="section" id="specialites">
+    <!-- ============ 2. SERVICES ============ -->
+    <section class="section section--serree services-section" id="services">
       <div class="wrap">
-        <div class="apparait">
-          <span class="eyebrow">Le savoir-faire de la maison</span>
-          <h2 class="titre-section">Les spécialités du chef</h2>
-          <span class="ruban-court" aria-hidden="true"></span>
-          <p class="chapo">
-            Tout part de la farine et des œufs. Nos pâtes sont pétries et découpées sur place
-            chaque matin, nos sauces mijotent lentement, et nos desserts sortent frais du
-            laboratoire le jour même où vous les mangez.
-          </p>
+        <h2 class="services__intro apparait">
+          Sur place <span aria-hidden="true">·</span> À emporter <span aria-hidden="true">·</span> Événements
+        </h2>
+        <span class="filet apparait" aria-hidden="true"></span>
+
+        <div class="carrousel apparait">
+
+          <article class="carrousel__item">
+            <div class="photo carrousel__photo">
+              <img src="terrasse.jpg" alt="La terrasse et la salle du restaurant Yummy Italia" loading="lazy" onerror="this.classList.add('introuvable')">
+              <div class="photo__ph"><b>Photo</b><span>terrasse.jpg</span></div>
+            </div>
+            <div class="carrousel__corps">
+              <span class="carrousel__tag">Sur place</span>
+              <h3>Au restaurant</h3>
+              <p>Profiter de la cuisine directement chez Yummy Italia, en salle ou en terrasse.</p>
+              <a href="tel:" data-lien="telephone" class="lien-fleche">Réserver une table →</a>
+            </div>
+          </article>
+
+          <article class="carrousel__item">
+            <div class="photo carrousel__photo">
+              <img src="comptoir.jpg" alt="Le comptoir traiteur garni de plats du jour" loading="lazy" onerror="this.classList.add('introuvable')">
+              <div class="photo__ph"><b>Photo</b><span>comptoir.jpg</span></div>
+            </div>
+            <div class="carrousel__corps">
+              <span class="carrousel__tag">À emporter</span>
+              <h3>Au comptoir</h3>
+              <p>Choisir parmi les préparations disponibles au comptoir et repartir avec.</p>
+              <a href="#carte" class="lien-fleche">Voir la carte →</a>
+            </div>
+          </article>
+
+          <article class="carrousel__item">
+            <div class="photo carrousel__photo">
+              <img src="chef.jpg" alt="Le chef dresse une assiette de pâtes en cuisine" loading="lazy" onerror="this.classList.add('introuvable')">
+              <div class="photo__ph"><b>Photo</b><span>chef.jpg</span></div>
+            </div>
+            <div class="carrousel__corps">
+              <span class="carrousel__tag">Événements</span>
+              <h3>Pour vos tablées</h3>
+              <p>La cuisine de Yummy Italia pour les événements privés ou professionnels.</p>
+              <a href="evenements.html" class="lien-fleche">Découvrir →</a>
+            </div>
+          </article>
+
         </div>
 
-        <!-- Rempli automatiquement depuis menu-data.js → specialites -->
-        <div class="grille-cards apparait" id="specialites-liste"></div>
+        <p class="indice-glisser apparait">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 12h16M14 6l6 6-6 6"/>
+          </svg>
+          Faites glisser
+        </p>
       </div>
     </section>
 
-    <!-- ============ 3. RESTAURANT & TRAITEUR ============ -->
-    <section class="section services" id="services">
-      <div class="wrap">
-        <div class="apparait centre">
-          <span class="eyebrow eyebrow--rouge">Trois façons de nous goûter</span>
-          <h2 class="titre-section">Chez nous, ou chez vous</h2>
-          <span class="ruban-court" aria-hidden="true"></span>
-        </div>
-
-        <div class="services__grid apparait">
-          <article class="service">
-            <div class="service__num">01</div>
-            <h3>Manger au restaurant</h3>
-            <p>Poussez la porte, installez-vous. Une salle chaleureuse au cœur de Bruxelles pour un déjeuner rapide, un dîner à deux ou un repas de famille.</p>
-            <ul>
-              <li>Réservation conseillée le week-end</li>
-              <li>Menu du midi en semaine</li>
-              <li>Groupes accueillis sur demande</li>
-            </ul>
-            <a href="#contact" class="btn">Réserver une table</a>
-          </article>
-
-          <article class="service">
-            <div class="service__num">02</div>
-            <h3>Commander à emporter</h3>
-            <p>Toute notre carte est disponible à emporter. Vous appelez, on prépare, vous passez récupérer — c'est chaud, c'est frais, c'est prêt.</p>
-            <ul>
-              <li>Commande par téléphone</li>
-              <li>Prêt en 20 à 30 minutes</li>
-              <li>Emballages adaptés aux plats chauds</li>
-            </ul>
-            <a href="#contact" class="btn btn--ligne">Passer commande</a>
-          </article>
-
-          <article class="service">
-            <div class="service__num">03</div>
-            <h3>Faire appel au traiteur</h3>
-            <p>Mariage, anniversaire, réception d'entreprise : on apporte la cuisine chez vous, partout à Bruxelles, jusqu'à 50 personnes.</p>
-            <ul>
-              <li>Toute la carte disponible en formule traiteur</li>
-              <li>Du petit comité au grand jour</li>
-              <li>Devis gratuit sous 48h</li>
-            </ul>
-            <a href="evenements.html" class="btn btn--ligne">Découvrir le traiteur</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ 4. LA CARTE ============ -->
-    <section class="section carte" id="menu">
+    <!-- ============ 3. LA CARTE ============ -->
+    <section class="section carte" id="carte">
       <div class="wrap">
         <div class="apparait centre">
           <span class="eyebrow">Il menù</span>
-          <h2 class="titre-section">La carte du restaurant</h2>
-          <span class="ruban-court" aria-hidden="true"></span>
+          <h2 class="titre-section">La carte</h2>
+          <span class="filet filet--clair" aria-hidden="true"></span>
           <p class="chapo">
-            Une carte courte, qui change au fil des saisons et des arrivages.
-            Tous nos plats sont disponibles sur place, à emporter et en formule traiteur.
+            Il y a une vraie carte, celle que vous trouverez ci-dessous. Et à côté,
+            une cuisine qui vit : chaque matin, le chef adapte une partie de ses
+            préparations selon son inspiration, les arrivages et les produits frais
+            du jour. C'est ce qui fait qu'on ne mange jamais tout à fait la même chose.
           </p>
         </div>
 
         <!-- Rempli automatiquement depuis menu-data.js → menu -->
         <div class="carte-grid apparait" id="menu-liste"></div>
 
-        <p class="carte__note">
-          Une allergie, une intolérance, un régime particulier ? Dites-le nous en salle ou
-          à la commande, on s'adapte.
-        </p>
+        <aside class="encart apparait">
+          <div class="encart__texte">
+            <h3>Une cuisine qui évolue au fil des jours</h3>
+            <p>
+              À la carte permanente s'ajoutent les préparations du jour, différentes
+              selon les produits disponibles. Certaines sont proposées en quantité
+              limitée et peuvent être épuisées en cours de service.
+            </p>
+            <p>
+              Pour vérifier la disponibilité d'un plat, un coup de fil suffit.
+            </p>
+          </div>
+          <div class="encart__action">
+            <a href="tel:" data-lien="telephone" class="btn btn--jaune">Vérifier une disponibilité</a>
+            <span class="encart__tel" data-info="telephone"></span>
+          </div>
+        </aside>
       </div>
-      <span class="ruban ruban--creme" aria-hidden="true" style="margin-top:3rem"></span>
     </section>
 
-    <!-- ============ 5. CARTE DES VINS ============ -->
-    <section class="section" id="vins">
+    <!-- ============ 4. NOS SPÉCIALITÉS ============ -->
+    <section class="section" id="specialites">
       <div class="wrap">
         <div class="apparait">
-          <span class="eyebrow">La cantina</span>
-          <h2 class="titre-section">La carte des vins</h2>
-          <span class="ruban-court" aria-hidden="true"></span>
+          <span class="eyebrow">La maison</span>
+          <h2 class="titre-section">Nos spécialités</h2>
+          <span class="filet" aria-hidden="true"></span>
           <p class="chapo">
-            Une sélection de vins italiens choisis pour accompagner nos plats, du verre simple
-            à la belle bouteille. Notre équipe se fera un plaisir de vous conseiller.
+            Ce qu'on prépare ici tous les jours, et pour quoi on revient.
           </p>
         </div>
 
-        <!-- Rempli automatiquement depuis menu-data.js → vins -->
-        <div class="vins-grid apparait" id="vins-liste"></div>
+        <div class="specs apparait">
+
+          <article class="spec-item">
+            <div class="photo spec-item__photo">
+              <img src="specialite-pates.jpg" alt="Orecchiette au ragù et parmesan" loading="lazy" onerror="this.classList.add('introuvable')">
+              <div class="photo__ph"><b>Photo</b><span>specialite-pates.jpg</span></div>
+            </div>
+            <h3>Les pâtes</h3>
+            <p>Ragù, pesto, vongole, légumes de saison : les préparations tournent au fil des jours et des arrivages.</p>
+          </article>
+
+          <article class="spec-item">
+            <div class="photo spec-item__photo">
+              <img src="specialite-lasagne.jpg" alt="Part de lasagne bolognaise gratinée" loading="lazy" onerror="this.classList.add('introuvable')">
+              <div class="photo__ph"><b>Photo</b><span>specialite-lasagne.jpg</span></div>
+            </div>
+            <h3>La lasagne</h3>
+            <p>Montée en couches généreuses, cuite au four et servie à la part. Notre plat vedette — et il part vite.</p>
+          </article>
+
+          <article class="spec-item">
+            <div class="photo spec-item__photo">
+              <img src="dolci-tiramisu.jpg" alt="Le tiramisu maison, servi à la coupe depuis une grande plaque" loading="lazy" onerror="this.classList.add('introuvable')">
+              <div class="photo__ph"><b>Photo</b><span>dolci-tiramisu.jpg</span></div>
+            </div>
+            <h3>Le tiramisu</h3>
+            <p>Préparé en grande plaque et découpé à la commande, comme à la maison. Crémeux, généreux, sans chichi.</p>
+          </article>
+
+          <article class="spec-item">
+            <span class="spec-item__badge">Nouveau</span>
+            <div class="photo spec-item__photo">
+              <img src="sandwich-italien.jpg" alt="Sandwichs italiens garnis de charcuterie et de pesto" loading="lazy" onerror="this.classList.add('introuvable')">
+              <div class="photo__ph"><b>Photo</b><span>sandwich-italien.jpg</span></div>
+            </div>
+            <h3>Le sandwich italien</h3>
+            <p>Charcuteries tranchées sur place, mozzarella, légumes marinés, pesto maison. Préparé à la commande.</p>
+          </article>
+
+        </div>
+
+        <div class="specs__pied apparait">
+          <p class="et-aussi">
+            Et aussi, selon les jours : antipasti de légumes marinés, poissons frais,
+            arancini, glaces maison.
+          </p>
+          <a href="tel:" data-lien="telephone" class="btn btn--jaune">Vérifier une disponibilité</a>
+        </div>
       </div>
     </section>
 
-    <!-- ============ 6. CONTACT / RÉSERVATION ============ -->
-    <section class="section contact" id="contact">
-      <div class="wrap contact__grid">
+    <!-- ============ 5 bis. LE TABLEAU DU RESTAURANT ============ -->
+    <section class="bande-tableau" id="vini">
+      <div class="wrap apparait">
+        <span class="eyebrow">Vini italiani</span>
+        <h2>Le verre, la bouteille,<br>ou les deux</h2>
+        <span class="filet" aria-hidden="true"></span>
+        <p>
+          Une sélection de vins italiens choisis bouteille par bouteille. À boire
+          ici pendant votre repas, ou à emporter comme dans n'importe quelle bonne
+          cave — c'est le même rayon.
+        </p>
+        <p class="bande-tableau__credit">Le tableau accroché dans la salle</p>
+      </div>
+    </section>
+
+    <!-- ============ 6. ÉPICERIE & VINS ============ -->
+    <section class="section epicerie" id="epicerie">
+      <div class="wrap">
         <div class="apparait">
-          <span class="eyebrow">Nous trouver</span>
-          <h2 class="titre-section">Réserver ou commander</h2>
-          <span class="ruban-court" aria-hidden="true"></span>
+          <span class="eyebrow eyebrow--rouge">Pas seulement un restaurant</span>
+          <h2 class="titre-section">Épicerie, traiteur<br>&amp; dégustation</h2>
+          <span class="filet" aria-hidden="true"></span>
           <p class="chapo">
-            Le plus simple, c'est de nous appeler : on prend votre table ou votre commande
-            à emporter directement au téléphone.
+            Trois choses au même endroit : les rayons où l'on fait ses courses
+            italiennes, le comptoir où l'on emporte un plat préparé, et les tables
+            où l'on goûte les deux sur place. On vient manger, on repart souvent
+            avec autre chose.
           </p>
-          <ul class="contact__infos">
-            <li><b>Adresse</b><span data-adresse></span></li>
-            <li><b>Téléphone</b><a href="tel:" data-info="telephone"></a></li>
-            <li><b>E-mail</b><a href="mailto:" data-info="email"></a></li>
-          </ul>
-          <div class="hero__cta">
-            <a href="tel:" data-lien="telephone" class="btn btn--jaune">Appeler le restaurant</a>
-            <a href="evenements.html" class="btn btn--ligne">Demander un devis traiteur</a>
+        </div>
+
+        <div class="duo apparait">
+          <div class="duo__photo">
+            <div class="photo">
+              <img src="cave-vins.jpg" alt="Les rayons de vins italiens" loading="lazy" onerror="this.classList.add('introuvable')">
+              <div class="photo__ph"><b>Photo</b><span>cave-vins.jpg</span></div>
+            </div>
+          </div>
+          <div class="duo__texte">
+            <h3>Ce qu'on trouve en rayon</h3>
+            <p>
+              Pâtes sèches, conserves, huiles, biscuits, gressins : les produits
+              qu'on utilise en cuisine se retrouvent sur les étagères, souvent des
+              petits producteurs qu'on suit depuis longtemps.
+            </p>
+            <p>
+              Côté cave, les vins sont classés par région plutôt que par prix.
+              Dites-nous ce que vous mangez ce soir, on vous oriente.
+            </p>
+            <p class="a-venir">Carte des vins à venir.</p>
+            <div class="vins-liste" id="vins-liste"></div>
           </div>
         </div>
 
+        <div class="mosaique mosaique--deux apparait">
+          <figure class="mosaique__item">
+            <div class="photo">
+              <img src="epicerie-produits.jpg" alt="Produits italiens en rayon : gressins, biscuits, conserves" loading="lazy" onerror="this.classList.add('introuvable')">
+              <div class="photo__ph"><b>Photo</b><span>epicerie-produits.jpg</span></div>
+            </div>
+            <figcaption>Les étagères de l'épicerie</figcaption>
+          </figure>
+          <figure class="mosaique__item">
+            <div class="photo">
+              <img src="epicerie-vitrine.jpg" alt="La vitrine : épicerie, traiteur, dégustation" loading="lazy" onerror="this.classList.add('introuvable')">
+              <div class="photo__ph"><b>Photo</b><span>epicerie-vitrine.jpg</span></div>
+            </div>
+            <figcaption>La vitrine, avenue Plasky</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============ 7. ÉVÉNEMENTS — introduction ============ -->
+    <section class="section evt-teaser" id="evenements">
+      <div class="wrap evt-teaser__grid apparait">
+        <div class="evt-teaser__photo">
+          <div class="photo">
+            <img src="comptoir-vitrine.jpg" alt="Plateaux et préparations pour un événement" loading="lazy" onerror="this.classList.add('introuvable')">
+            <div class="photo__ph"><b>Photo</b><span>comptoir-vitrine.jpg</span></div>
+          </div>
+        </div>
+        <div class="evt-teaser__texte">
+          <span class="eyebrow">Événements</span>
+          <h2 class="titre-section">Notre cuisine,<br>pour vos occasions</h2>
+          <span class="filet" aria-hidden="true"></span>
+          <p class="chapo">
+            Anniversaire, repas de famille, réception ou déjeuner d'entreprise :
+            toute la cuisine de la maison peut être adaptée à votre événement,
+            jusqu'à 50 personnes — et au-delà avec un peu plus d'organisation.
+          </p>
+          <ul class="evt-teaser__points">
+            <li>Événements privés</li>
+            <li>Anniversaires</li>
+            <li>Repas de groupe</li>
+            <li>Entreprises</li>
+            <li>Réceptions</li>
+          </ul>
+          <div class="hero__cta">
+            <a href="evenements.html" class="btn btn--jaune">Découvrir notre service événements</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 8. PASSER NOUS VOIR ============ -->
+    <section class="section contact" id="contact">
+      <div class="wrap">
         <div class="apparait">
-          <div class="photo contact__photo">
-            <img src="ambiance-salle.jpg" alt="Ambiance de la salle" loading="lazy" onload="this.classList.add('chargee')">
-            <div class="photo__ph">
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-                <rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.6"/>
-                <path d="M21 16l-5-5-5.5 5.5L8 14l-5 5"/>
-              </svg>
-              <b>Photo à ajouter</b>
-              <span>ambiance-salle.jpg</span>
+          <span class="eyebrow eyebrow--rouge">Nous trouver</span>
+          <h2 class="titre-section">Passer nous voir</h2>
+          <span class="filet" aria-hidden="true"></span>
+        </div>
+
+        <div class="contact__grid apparait">
+          <div class="contact__colonne">
+            <h3>Coordonnées</h3>
+            <ul class="contact__infos">
+              <li><b>Adresse</b><span data-adresse></span></li>
+              <li><b>Téléphone</b><a href="tel:" data-info="telephone"></a></li>
+              <li><b>E-mail</b><a href="mailto:" data-info="email"></a></li>
+            </ul>
+            <div class="contact__boutons">
+              <a href="tel:" data-lien="telephone" class="btn btn--jaune">Nous appeler</a>
+              <a href="#" data-itineraire class="btn btn--ligne">Obtenir l'itinéraire</a>
+            </div>
+          </div>
+
+          <div class="contact__colonne">
+            <h3>Horaires</h3>
+            <ul class="horaires-liste" data-horaires></ul>
+            <p class="note-douce">Fermé le dimanche.</p>
+          </div>
+
+          <div class="contact__colonne contact__colonne--photo">
+            <div class="photo">
+              <img src="facade-terrasse.jpg" alt="La façade de Yummy Italia et sa terrasse" loading="lazy" onerror="this.classList.add('introuvable')">
+              <div class="photo__ph"><b>Photo</b><span>facade-terrasse.jpg</span></div>
             </div>
           </div>
         </div>
@@ -249,12 +434,13 @@
 
   <!-- ============ PIED DE PAGE ============ -->
   <footer class="pied">
+    <span class="filet-haut filet-haut--pied" aria-hidden="true"></span>
     <div class="wrap pied__grid">
       <div>
-        <span class="logo">Yummy&nbsp;<span>Italia</span> <small>Bruxelles</small></span>
+        <span class="logo">Yummy&nbsp;<span>Italia</span> <small>Épicerie italienne</small></span>
         <p style="margin-top:1.1rem;max-width:34ch">
-          Restaurant et traiteur italien à Bruxelles. Pâtes fraîches faites maison,
-          produits frais, desserts du jour.
+          Restaurant, comptoir traiteur et épicerie italienne à Schaerbeek.
+          À emporter ou à table.
         </p>
         <div class="reseaux">
           <a data-lien="instagram" href="#" aria-label="Instagram" target="_blank" rel="noopener">
@@ -281,14 +467,15 @@
         <p><a href="tel:" data-info="telephone"></a></p>
         <p><a href="mailto:" data-info="email"></a></p>
         <h4 style="margin-top:1.8rem">Plus</h4>
-        <p><a href="evenements.html">Événements &amp; Traiteur</a></p>
-        <p><a href="#menu">La carte</a></p>
+        <p><a href="#carte">La carte</a></p>
+        <p><a href="#specialites">Nos spécialités</a></p>
+        <p><a href="evenements.html">Événements</a></p>
       </div>
     </div>
 
     <div class="wrap pied__bas">
       <span>© <span data-annee></span> Yummy Italia — Tous droits réservés</span>
-      <span>Fait maison, à Bruxelles</span>
+      <span>Épicerie · Traiteur · Dégustation</span>
     </div>
   </footer>
 

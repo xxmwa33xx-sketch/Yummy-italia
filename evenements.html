@@ -3,11 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Événements &amp; Traiteur — Yummy Italia, Bruxelles</title>
-  <meta name="description" content="Service traiteur italien à Bruxelles pour mariages, anniversaires et événements d'entreprise, jusqu'à 50 personnes. Toute la carte du restaurant disponible en formule traiteur.">
+  <title>Traiteur italien &amp; événements à Bruxelles — Yummy Italia</title>
+  <meta name="description" content="Yummy Italia, traiteur italien à Schaerbeek : repas de groupe, événements privés et professionnels à Bruxelles. Jusqu'à 50 personnes une semaine à l'avance, davantage avec un mois d'organisation.">
+  <link rel="canonical" href="https://yummy-italia.com/evenements.html">
 
-  <meta property="og:title" content="Événements & Traiteur — Yummy Italia">
-  <meta property="og:description" content="Traiteur italien à Bruxelles : mariages, anniversaires, réceptions d'entreprise jusqu'à 50 personnes.">
+  <meta property="og:title" content="Traiteur italien & événements à Bruxelles — Yummy Italia">
+  <meta property="og:description" content="Notre cuisine italienne pour vos repas de groupe et vos événements privés ou professionnels, à Schaerbeek.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_BE">
   <meta property="og:image" content="og-image.jpg">
@@ -17,15 +18,64 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..800,0..100,0..1;1,9..144,400..800,0..100,0..1&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+
+  <!-- La photo de fond du hero est chargée en priorité : c'est le
+       premier élément visible de la page. -->
+  <link rel="preload" as="image" href="fond-hero.jpg">
+
+  <!-- Données structurées : identité et informations pratiques du restaurant.
+       Elles reprennent exactement ce qui est affiché sur le site. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Yummy Italia",
+    "description": "Restaurant, comptoir traiteur et épicerie italienne à Schaerbeek, Bruxelles.",
+    "servesCuisine": "Italienne",
+    "url": "https://yummy-italia.com/",
+    "telephone": "+3223185301",
+    "priceRange": "€€",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Avenue Eugène Plasky 81",
+      "postalCode": "1030",
+      "addressLocality": "Schaerbeek",
+      "addressRegion": "Bruxelles",
+      "addressCountry": "BE"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "10:00",
+        "closes": "22:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "10:00",
+        "closes": "19:00"
+      }
+    ],
+    "hasMenu": "https://yummy-italia.com/#carte",
+    "acceptsReservations": "https://yummy-italia.com/#contact",
+    "makesOffer": {
+      "@type": "Offer",
+      "name": "Service traiteur italien pour événements",
+      "url": "https://yummy-italia.com/evenements.html",
+      "areaServed": { "@type": "City", "name": "Bruxelles" }
+    }
+  }
+  </script>
 </head>
 <body>
 
-  <span class="ruban ruban--haut" aria-hidden="true"></span>
+  <span class="filet-haut" aria-hidden="true"></span>
 
   <!-- ============ EN-TÊTE ============ -->
   <header class="entete">
     <div class="wrap entete__inner">
-      <a class="logo" href="index.html">Yummy&nbsp;<span>Italia</span> <small>Bruxelles</small></a>
+      <a class="logo" href="index.html">Yummy&nbsp;<span>Italia</span> <small>Épicerie italienne</small></a>
 
       <button class="nav-burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-principale">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
@@ -34,172 +84,270 @@
       </button>
 
       <nav class="nav" id="nav-principale" aria-label="Navigation principale">
+        <a href="index.html#services">Services</a>
+        <a href="index.html#carte">La carte</a>
         <a href="index.html#specialites">Spécialités</a>
-        <a href="index.html#menu">La carte</a>
-        <a href="index.html#vins">Les vins</a>
-        <a href="evenements.html" class="actif">Événements &amp; Traiteur</a>
-        <a href="#devis" class="btn btn--jaune">Demander un devis</a>
+        <a href="index.html#epicerie">Épicerie</a>
+        <a href="evenements.html" class="actif">Événements</a>
+        <a href="tel:" data-lien="telephone" class="btn btn--jaune">Nous appeler</a>
       </nav>
     </div>
   </header>
 
   <main>
 
-    <!-- ============ 1. HERO ÉVÉNEMENTS ============ -->
-    <section class="hero">
-      <div class="wrap hero__grid">
-        <div class="hero__texte">
-          <span class="eyebrow eyebrow--rouge">Traiteur · Toute la région bruxelloise</span>
-          <h1 class="hero__titre">Vos grands<br>jours, <em>en version<br>italienne.</em></h1>
-          <p class="hero__accroche">
-            Mariage, anniversaire, baptême, réception d'entreprise : nous déplaçons
-            notre cuisine chez vous, partout à Bruxelles, pour des réceptions
-            jusqu'à 50 personnes.
+    <!-- ============ 1. HERO — la façade en fond ============ -->
+    <section class="fond fond--hero evt-hero">
+      <div class="wrap">
+        <div class="evt-hero__inner">
+          <span class="eyebrow">Traiteur italien · Bruxelles</span>
+          <h1 class="evt-hero__titre">Un traiteur italien<br><em>pour vos événements.</em></h1>
+          <span class="filet" aria-hidden="true"></span>
+          <p class="evt-hero__accroche">
+            Yummy Italia est un restaurant, un comptoir traiteur et une épicerie
+            italienne installés avenue Eugène Plasky, à Schaerbeek. La même cuisine
+            — pâtes, lasagne, antipasti, desserts — se prépare pour vos repas de
+            groupe et vos événements, privés comme professionnels, partout à Bruxelles.
           </p>
           <div class="hero__cta">
-            <a href="#devis" class="btn btn--jaune">Demander un devis</a>
-            <a href="#offre" class="btn btn--ligne">Voir l'offre traiteur</a>
+            <a href="#organiser" class="btn btn--jaune">Organiser mon événement</a>
+            <a href="tel:" data-lien="telephone" class="btn btn--ligne">Nous appeler</a>
           </div>
         </div>
 
-        <div class="hero__visuel">
-          <div class="hero__cadre" aria-hidden="true"></div>
-          <div class="photo hero__photo">
-            <img src="evenement-hero.jpg" alt="Réception organisée par Yummy Italia" onload="this.classList.add('chargee')">
-            <div class="photo__ph">
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-                <rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.6"/>
-                <path d="M21 16l-5-5-5.5 5.5L8 14l-5 5"/>
-              </svg>
-              <b>Photo à ajouter</b>
-              <span>evenement-hero.jpg</span>
-            </div>
-          </div>
-          <div class="pastille">Jusqu'à<br>50<br>convives</div>
+        <div class="reperes">
+          <div class="repere"><b>Capacité</b><span>50 personnes, et au-delà</span></div>
+          <div class="repere"><b>Délai</b><span>1 semaine · 1 mois au-delà</span></div>
+          <div class="repere"><b>Formules</b><span>Sur place ou à emporter</span></div>
         </div>
       </div>
     </section>
 
-    <div class="bandeau" aria-hidden="true">
-      <div class="bandeau__piste">
-        <span>
-          Mariages <i>&#9679;</i> Anniversaires <i>&#9679;</i> Baptêmes <i>&#9679;</i>
-          Événements d'entreprise <i>&#9679;</i> Réceptions privées <i>&#9679;</i>
-          Buffets <i>&#9679;</i> Repas assis <i>&#9679;</i>
-        </span>
-        <span>
-          Mariages <i>&#9679;</i> Anniversaires <i>&#9679;</i> Baptêmes <i>&#9679;</i>
-          Événements d'entreprise <i>&#9679;</i> Réceptions privées <i>&#9679;</i>
-          Buffets <i>&#9679;</i> Repas assis <i>&#9679;</i>
-        </span>
-      </div>
-    </div>
-
-    <!-- ============ 2. L'OFFRE TRAITEUR ============ -->
-    <section class="section" id="offre">
+    <!-- ============ 2. LES OCCASIONS — respiration claire ============ -->
+    <section class="section" id="occasions">
       <div class="wrap">
         <div class="apparait">
-          <span class="eyebrow">Comment ça marche</span>
-          <h2 class="titre-section">Toute notre carte,<br>chez vous</h2>
-          <span class="ruban-court" aria-hidden="true"></span>
+          <span class="eyebrow eyebrow--rouge">Ce qu'on prépare</span>
+          <h2 class="titre-section">Pour toutes vos occasions</h2>
+          <span class="filet" aria-hidden="true"></span>
           <p class="chapo">
-            Il n'y a pas de « menu traiteur » à part : l'intégralité de la carte du
-            restaurant est disponible pour vos événements. Vous composez librement,
-            on adapte les quantités et le service à votre réception.
-          </p>
-        </div>
-
-        <div class="chiffres apparait">
-          <div class="chiffre"><b>50</b><span>Convives maximum</span></div>
-          <div class="chiffre"><b>100 %</b><span>De la carte disponible</span></div>
-          <div class="chiffre"><b>48 h</b><span>Pour recevoir votre devis</span></div>
-          <div class="chiffre"><b>19</b><span>Communes bruxelloises</span></div>
-        </div>
-
-        <div class="services__grid apparait">
-          <article class="service">
-            <div class="service__num">01</div>
-            <h3>Vous nous dites tout</h3>
-            <p>Le type d'événement, la date, le nombre de convives, le lieu. Un formulaire suffit pour démarrer.</p>
-          </article>
-          <article class="service">
-            <div class="service__num">02</div>
-            <h3>On compose ensemble</h3>
-            <p>On construit votre menu à partir de la carte : buffet, repas assis, formule apéritive, dessert seul. Les régimes particuliers sont pris en compte.</p>
-          </article>
-          <article class="service">
-            <div class="service__num">03</div>
-            <h3>On s'occupe du jour J</h3>
-            <p>Préparation le matin même, livraison sur place, mise en place. Vous ne touchez pas une casserole.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ 3. TYPES D'ÉVÉNEMENTS ============ -->
-    <section class="section services">
-      <div class="wrap">
-        <div class="apparait centre">
-          <span class="eyebrow eyebrow--rouge">Ce qu'on organise</span>
-          <h2 class="titre-section">Du petit comité au grand jour</h2>
-          <span class="ruban-court" aria-hidden="true"></span>
-          <p class="chapo">
-            Une table de douze dans votre salon ou une réception de cinquante personnes :
-            la même cuisine, la même exigence sur la fraîcheur.
+            Il n'y a pas de carte traiteur à part : ce qui sort de notre cuisine et
+            de notre comptoir peut être adapté à votre événement, dans les quantités
+            et le format qui vous conviennent.
           </p>
         </div>
 
         <div class="services__grid apparait">
           <article class="service">
-            <h3>Mariages</h3>
-            <p>Cocktail, repas assis ou buffet du soir. Une cuisine généreuse et familiale qui met tout le monde d'accord, du grand-père aux enfants.</p>
+            <h3>Événements privés</h3>
+            <p>Fêtes entre amis, occasions particulières, célébrations en petit comité comme en grand.</p>
           </article>
           <article class="service">
-            <h3>Anniversaires &amp; fêtes de famille</h3>
-            <p>Baptêmes, communions, anniversaires ronds. Formules souples à partir d'une dizaine de convives.</p>
+            <h3>Anniversaires</h3>
+            <p>Une grande tablée, des plats à partager et le tiramisu pour finir.</p>
+          </article>
+          <article class="service">
+            <h3>Repas de groupe</h3>
+            <p>Familles réunies, amis de longue date, associations : on adapte la formule au nombre.</p>
           </article>
           <article class="service">
             <h3>Événements d'entreprise</h3>
-            <p>Lunchs de réunion, afterworks, fêtes de fin d'année. Livraison sur votre lieu de travail, partout à Bruxelles.</p>
+            <p>Déjeuners d'équipe, réunions de travail, fêtes de fin d'année, afterworks.</p>
+          </article>
+          <article class="service">
+            <h3>Réceptions</h3>
+            <p>Formules apéritives, buffets d'antipasti, plats chauds, desserts.</p>
+          </article>
+          <article class="service">
+            <h3>Autres demandes</h3>
+            <p>Un projet qui ne rentre dans aucune case ? Parlons-en, on trouve souvent une solution.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ============ 4. GALERIE ============ -->
-    <section class="section" id="galerie">
+    <!-- ============ 3. NOTRE CUISINE — le comptoir en fond ============ -->
+    <section class="section fond fond--cuisine" id="cuisine">
       <div class="wrap">
         <div class="apparait">
-          <span class="eyebrow">En images</span>
-          <h2 class="titre-section">Nos derniers événements</h2>
-          <span class="ruban-court" aria-hidden="true"></span>
-        </div>
-
-        <!-- Rempli automatiquement depuis menu-data.js → galerie -->
-        <div class="galerie apparait" id="galerie-liste"></div>
-      </div>
-    </section>
-
-    <!-- ============ 5. DEMANDE DE DEVIS ============ -->
-    <section class="section carte" id="devis">
-      <div class="wrap">
-        <div class="apparait centre">
-          <span class="eyebrow">Sans engagement</span>
-          <h2 class="titre-section">Demander un devis</h2>
-          <span class="ruban-court" aria-hidden="true"></span>
+          <span class="eyebrow">Notre cuisine</span>
+          <h2 class="titre-section">Un repas italien<br>pour votre groupe</h2>
+          <span class="filet" aria-hidden="true"></span>
           <p class="chapo">
-            Décrivez-nous votre projet en deux minutes. Nous revenons vers vous
-            sous 48 heures avec une proposition chiffrée.
+            Le menu se construit à partir de ce que nous cuisinons au quotidien.
+            Rien n'est figé : selon le moment de la journée, le nombre de convives
+            et le format souhaité, on compose ensemble.
           </p>
         </div>
 
-        <div class="apparait" style="max-width:780px;margin:clamp(2.5rem,5vw,3.5rem) auto 0">
-          <!--
-            FORMULAIRE — prêt pour Netlify Forms.
-            Une fois le site déployé sur Netlify, les demandes arriveront
-            automatiquement dans l'onglet « Forms » du tableau de bord Netlify.
-            Aucune configuration supplémentaire n'est nécessaire.
-          -->
+        <div class="colonnes apparait">
+          <article class="colonne">
+            <h3>Pour commencer</h3>
+            <p>Antipasti de légumes marinés, charcuteries italiennes tranchées sur place, burrata, carpaccios, arancini.</p>
+          </article>
+          <article class="colonne">
+            <h3>Les plats</h3>
+            <p>Pâtes préparées en grande quantité, lasagne au four, poissons et viandes selon les arrivages du jour.</p>
+          </article>
+          <article class="colonne">
+            <h3>Les desserts</h3>
+            <p>Le tiramisu maison en grande plaque, découpé sur place, et les glaces préparées à la maison.</p>
+          </article>
+        </div>
+
+        <p class="et-aussi apparait">
+          Les régimes particuliers, végétariens ou allergies sont pris en compte :
+          signalez-les au moment de la demande et nous adaptons les préparations.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ 4. LES DEUX FORMATS — deux panneaux photo ============ -->
+    <section class="section" id="formats">
+      <div class="wrap">
+        <div class="apparait">
+          <span class="eyebrow eyebrow--rouge">Le format du repas</span>
+          <h2 class="titre-section">Deux façons de profiter<br>de notre cuisine</h2>
+          <span class="filet" aria-hidden="true"></span>
+          <p class="chapo">
+            Selon le type d'événement et l'organisation que nous définissons ensemble,
+            les plats peuvent être présentés de deux manières différentes.
+          </p>
+        </div>
+      </div>
+
+      <div class="panneaux apparait">
+        <article class="panneau panneau--buffet">
+          <span class="panneau__num">Format 01</span>
+          <h3>Buffet &amp; self-service</h3>
+          <p>
+            Les préparations sont présentées ensemble, dans un format convivial
+            où chacun vient se servir. C'est la formule la plus souple : elle
+            permet de proposer beaucoup de variété — antipasti, pâtes, lasagne,
+            légumes, desserts — et convient bien aux repas de groupe et aux
+            moments détendus.
+          </p>
+        </article>
+
+        <article class="panneau panneau--assiette">
+          <span class="panneau__num">Format 02</span>
+          <h3>Service en assiette</h3>
+          <p>
+            Les plats peuvent aussi être servis individuellement, pour une
+            expérience plus proche de celle du restaurant. Une formule adaptée
+            aux événements qui demandent un déroulé plus structuré, avec un
+            enchaînement de services défini à l'avance.
+          </p>
+        </article>
+      </div>
+
+      <div class="wrap">
+        <p class="et-aussi apparait">
+          Les deux formats sont envisageables : le choix se fait au moment de la
+          demande, en fonction du lieu, du nombre de convives et de l'organisation
+          que nous mettons en place ensemble.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ 5. CAPACITÉ ET DÉLAIS — la terrasse en fond ============ -->
+    <section class="section fond fond--capacites" id="capacites">
+      <div class="wrap">
+        <div class="apparait">
+          <span class="eyebrow">Combien serez-vous ?</span>
+          <h2 class="titre-section">Capacité et délais</h2>
+          <span class="filet" aria-hidden="true"></span>
+        </div>
+
+        <div class="capacites apparait">
+          <div class="capacite">
+            <h3 class="capacite__nombre">Jusqu'à 50 personnes</h3>
+            <p>
+              Nous organisons votre repas ou votre événement sans difficulté
+              particulière. Prenez contact <b>au minimum une semaine à l'avance</b>
+              pour que nous puissions commander les produits et préparer la
+              prestation correctement.
+            </p>
+          </div>
+          <div class="capacite capacite--accent">
+            <h3 class="capacite__nombre">Plus de 50 personnes</h3>
+            <p>
+              C'est également possible, mais cela demande davantage d'organisation.
+              Pour ces événements, contactez-nous idéalement <b>un mois à l'avance</b> :
+              nous étudions ensemble la demande, les quantités, le menu et le déroulé
+              de la journée.
+            </p>
+          </div>
+        </div>
+
+        <p class="et-aussi apparait">
+          Ces délais sont des repères, pas des règles absolues. Si votre événement
+          approche plus vite que prévu, appelez-nous quand même : on regarde ce qui
+          est faisable avec le temps disponible.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ 6. LE DÉROULÉ — respiration claire ============ -->
+    <section class="section" id="deroule">
+      <div class="wrap">
+        <div class="apparait">
+          <span class="eyebrow eyebrow--rouge">Comment ça se passe</span>
+          <h2 class="titre-section">De la demande au jour J</h2>
+          <span class="filet" aria-hidden="true"></span>
+        </div>
+
+        <div class="etapes apparait">
+          <article class="etape">
+            <div class="etape__num">01</div>
+            <h3>Vous nous dites tout</h3>
+            <p>Le type d'événement, la date, le nombre de convives, le lieu. Un appel ou le formulaire ci-dessous suffit pour démarrer.</p>
+          </article>
+          <article class="etape">
+            <div class="etape__num">02</div>
+            <h3>On compose le menu</h3>
+            <p>On construit la formule à partir de notre cuisine : antipasti, pâtes, lasagne, plats chauds, desserts, dans les quantités qui conviennent.</p>
+          </article>
+          <article class="etape">
+            <div class="etape__num">03</div>
+            <h3>On convient du déroulé</h3>
+            <p>Préparation, horaire, format du service : on cale les détails ensemble avant le jour de votre événement.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 7. L'APPEL — la salle en fond ============ -->
+    <section class="fond fond--salle appel">
+      <div class="wrap apparait">
+        <span class="eyebrow">Sans engagement</span>
+        <h2>Parlons de votre événement</h2>
+        <span class="filet" aria-hidden="true"></span>
+        <p>
+          Le plus simple reste de nous appeler : on fait le tour de votre projet
+          en quelques minutes, et vous savez tout de suite ce qui est possible.
+        </p>
+        <div class="hero__cta">
+          <a href="tel:" data-lien="telephone" class="btn btn--jaune">Nous appeler</a>
+          <a href="#organiser" class="btn btn--ligne">Faire une demande écrite</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 8. LE FORMULAIRE ============ -->
+    <section class="section carte" id="organiser">
+      <div class="wrap">
+        <div class="apparait centre">
+          <span class="eyebrow">Votre demande</span>
+          <h2 class="titre-section">Organiser mon événement</h2>
+          <span class="filet" aria-hidden="true"></span>
+          <p class="chapo">
+            Vous préférez écrire ? Ce formulaire nous suffit : dites-nous l'essentiel
+            et nous revenons vers vous dès que possible avec une proposition.
+          </p>
+        </div>
+
+        <div class="apparait" style="max-width:780px;margin:clamp(2rem,4vw,3rem) auto 0">
           <form class="formulaire"
                 name="devis-traiteur"
                 method="POST"
@@ -228,11 +376,12 @@
               <div class="champ">
                 <label for="type">Type d'événement</label>
                 <select id="type" name="type">
-                  <option>Mariage</option>
-                  <option>Anniversaire / fête de famille</option>
+                  <option>Événement privé</option>
+                  <option>Anniversaire</option>
+                  <option>Repas de groupe</option>
                   <option>Événement d'entreprise</option>
-                  <option>Réception privée</option>
-                  <option>Autre</option>
+                  <option>Réception</option>
+                  <option>Autre demande</option>
                 </select>
               </div>
               <div class="champ">
@@ -241,24 +390,164 @@
               </div>
               <div class="champ">
                 <label for="personnes">Nombre de personnes</label>
-                <input type="number" id="personnes" name="personnes" min="1" max="50" placeholder="Jusqu'à 50">
+                <input type="number" id="personnes" name="personnes" min="1" placeholder="Ex. 24">
               </div>
               <div class="champ champ--large">
                 <label for="lieu">Lieu de l'événement</label>
-                <input type="text" id="lieu" name="lieu" placeholder="Commune ou adresse à Bruxelles">
+                <input type="text" id="lieu" name="lieu" placeholder="Chez vous, au restaurant, ailleurs…">
               </div>
               <div class="champ champ--large">
                 <label for="message">Votre projet</label>
-                <textarea id="message" name="message" placeholder="Buffet ou repas assis, plats souhaités, régimes particuliers, budget indicatif…"></textarea>
+                <textarea id="message" name="message" placeholder="Format souhaité, plats qui vous font envie, régimes particuliers, budget indicatif…"></textarea>
               </div>
             </div>
 
             <button type="submit" class="btn btn--jaune">Envoyer ma demande</button>
             <p class="formulaire__note">
-              * Champs obligatoires. Vos données servent uniquement à traiter votre demande
-              et ne sont jamais transmises à des tiers.
+              * Champs obligatoires. Vos données servent uniquement à traiter votre
+              demande et ne sont jamais transmises à des tiers.
             </p>
           </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 9. QUESTIONS FRÉQUENTES ============ -->
+    <section class="section" id="faq">
+      <div class="wrap">
+        <div class="apparait">
+          <span class="eyebrow eyebrow--rouge">Bon à savoir</span>
+          <h2 class="titre-section">Questions fréquentes</h2>
+          <span class="filet" aria-hidden="true"></span>
+        </div>
+
+        <div class="faq apparait">
+          <details class="faq__item">
+            <summary><h3>Pour combien de personnes pouvez-vous organiser un événement ?</h3></summary>
+            <div class="faq__reponse">
+              <p>
+                Les prestations jusqu'à 50 personnes sont facilement envisageables :
+                c'est le format que nous préparons le plus souvent, aussi bien pour
+                un repas de famille que pour un déjeuner d'entreprise.
+              </p>
+              <p>
+                Au-delà de 50 personnes, c'est toujours possible, mais l'organisation
+                demande plus de préparation — quantités, logistique, déroulé du service.
+                Contactez-nous pour qu'on étudie la faisabilité ensemble.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary><h3>Combien de temps à l'avance faut-il réserver ?</h3></summary>
+            <div class="faq__reponse">
+              <p>
+                Pour un événement jusqu'à 50 personnes, comptez <b>au minimum une
+                semaine</b> : cela nous laisse le temps de commander les produits et
+                d'organiser la préparation sans bousculer le service du restaurant.
+              </p>
+              <p>
+                Pour un événement de plus de 50 personnes, prenez contact <b>environ
+                un mois à l'avance</b>. Si votre date approche plus vite, appelez-nous
+                quand même — on regarde ce qui reste faisable.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary><h3>Quels types d'événements pouvez-vous organiser ?</h3></summary>
+            <div class="faq__reponse">
+              <p>
+                Aussi bien des événements privés que professionnels : anniversaires,
+                repas de famille, fêtes entre amis, réceptions, déjeuners d'équipe,
+                réunions de travail, fêtes de fin d'année. Si votre projet ne rentre
+                dans aucune de ces cases, parlez-nous-en simplement.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary><h3>Peut-on choisir les plats ?</h3></summary>
+            <div class="faq__reponse">
+              <p>
+                Oui. Les spécialités de la maison servent de base — pâtes, lasagne,
+                antipasti, charcuteries, tiramisu — et la formule se construit à partir
+                de là, selon le type d'événement, le nombre de personnes et vos envies.
+              </p>
+              <p>
+                Notre cuisine évoluant avec les arrivages, certaines préparations
+                dépendent de la saison : on cale les détails au moment de la demande.
+                Les régimes particuliers et les allergies sont pris en compte.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary><h3>Proposez-vous un service traiteur italien ?</h3></summary>
+            <div class="faq__reponse">
+              <p>
+                Oui. Yummy Italia prépare sa cuisine italienne pour des événements
+                à Bruxelles, en plus du restaurant et du comptoir à emporter. Le
+                fonctionnement est simple : vous nous décrivez votre projet, nous
+                composons ensemble le menu et les quantités, puis nous convenons du
+                déroulé et du mode de remise.
+              </p>
+              <p>
+                Le plus rapide reste un appel au restaurant, où nous pouvons faire
+                le tour de votre demande en quelques minutes.
+              </p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 10. LA FAÇADE — venir nous voir ============ -->
+    <section class="fond fond--cta appel">
+      <div class="wrap apparait">
+        <span class="eyebrow">Avenue Eugène Plasky 81</span>
+        <h2>Passez nous voir</h2>
+        <span class="filet" aria-hidden="true"></span>
+        <p>
+          La porte est ouverte du lundi au samedi : venez goûter le comptoir avant
+          de nous confier votre événement, c'est souvent la meilleure façon de
+          commencer.
+        </p>
+        <div class="hero__cta">
+          <a href="#" data-itineraire class="btn btn--jaune">Obtenir l'itinéraire</a>
+          <a href="index.html#carte" class="btn btn--ligne">Voir la carte</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 11. NOUS TROUVER ============ -->
+    <section class="section contact" id="contact">
+      <div class="wrap">
+        <div class="apparait">
+          <span class="eyebrow eyebrow--rouge">Nous trouver</span>
+          <h2 class="titre-section">Coordonnées et horaires</h2>
+          <span class="filet" aria-hidden="true"></span>
+        </div>
+
+        <div class="contact__grid contact__grid--sans-photo apparait">
+          <div class="contact__colonne">
+            <h3>Coordonnées</h3>
+            <ul class="contact__infos">
+              <li><b>Adresse</b><span data-adresse></span></li>
+              <li><b>Téléphone</b><a href="tel:" data-info="telephone"></a></li>
+              <li><b>E-mail</b><a href="mailto:" data-info="email"></a></li>
+            </ul>
+            <div class="contact__boutons">
+              <a href="tel:" data-lien="telephone" class="btn btn--jaune">Nous appeler</a>
+              <a href="#" data-itineraire class="btn btn--ligne">Obtenir l'itinéraire</a>
+            </div>
+          </div>
+
+          <div class="contact__colonne">
+            <h3>Horaires</h3>
+            <ul class="horaires-liste" data-horaires></ul>
+            <p class="note-douce">Fermé le dimanche.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -267,12 +556,13 @@
 
   <!-- ============ PIED DE PAGE ============ -->
   <footer class="pied">
+    <span class="filet-haut filet-haut--pied" aria-hidden="true"></span>
     <div class="wrap pied__grid">
       <div>
-        <span class="logo">Yummy&nbsp;<span>Italia</span> <small>Bruxelles</small></span>
+        <span class="logo">Yummy&nbsp;<span>Italia</span> <small>Épicerie italienne</small></span>
         <p style="margin-top:1.1rem;max-width:34ch">
-          Restaurant et traiteur italien à Bruxelles. Pâtes fraîches faites maison,
-          produits frais, desserts du jour.
+          Restaurant, comptoir traiteur et épicerie italienne à Schaerbeek.
+          À emporter ou à table.
         </p>
         <div class="reseaux">
           <a data-lien="instagram" href="#" aria-label="Instagram" target="_blank" rel="noopener">
@@ -300,13 +590,14 @@
         <p><a href="mailto:" data-info="email"></a></p>
         <h4 style="margin-top:1.8rem">Plus</h4>
         <p><a href="index.html">Accueil</a></p>
-        <p><a href="index.html#menu">La carte</a></p>
+        <p><a href="index.html#carte">La carte</a></p>
+        <p><a href="index.html#specialites">Nos spécialités</a></p>
       </div>
     </div>
 
     <div class="wrap pied__bas">
       <span>© <span data-annee></span> Yummy Italia — Tous droits réservés</span>
-      <span>Fait maison, à Bruxelles</span>
+      <span>Épicerie · Traiteur · Dégustation</span>
     </div>
   </footer>
 

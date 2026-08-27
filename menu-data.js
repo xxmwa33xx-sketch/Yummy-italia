@@ -10,149 +10,105 @@
    - Garder la virgule à la fin de chaque ligne
    - Pour ajouter un plat, copier-coller une ligne { ... } entière
    - Pour supprimer un plat, effacer la ligne { ... } entière
-   - "image" = nom du fichier à déposer dans le dossier /images/
-     Tant que la photo n'existe pas, un bloc placeholder s'affiche.
    ============================================================ */
 
 const CONTENU = {
 
-  /* ---------- INFOS DU RESTAURANT (utilisées dans le footer) ---------- */
+  /* ---------- INFOS DU RESTAURANT ----------
+     ⚠️ À COMPLÉTER EN PRIORITÉ : le téléphone alimente tous les
+     boutons « Nous appeler » du site. Tant qu'il n'est pas rempli,
+     ces boutons ne déclenchent pas d'appel.                      */
   infos: {
     nom: "Yummy Italia",
-    adresse: "[À COMPLÉTER : rue et numéro]",
-    codePostal: "[À COMPLÉTER]",
-    ville: "Bruxelles",
-    telephone: "[À COMPLÉTER : +32 ...]",
-    email: "[À COMPLÉTER : contact@yummy-italia.com]",
-    instagram: "https://instagram.com/",
-    facebook: "https://facebook.com/",
+    adresse: "Avenue Eugène Plasky 81",
+    codePostal: "1030",
+    ville: "Schaerbeek",
+    telephone: "02 318 53 01",
+
+    /* Champs facultatifs : laissés vides, ils disparaissent simplement
+       du site (aucune ligne vide, aucun lien mort). Remplissez-les
+       le jour où vous les aurez. */
+    email: "",
+    instagram: "",
+    facebook: "",
+
+    /* Lien Google Maps du restaurant. Laissé vide, le bouton
+       « Obtenir l'itinéraire » se construit tout seul à partir de
+       l'adresse ci-dessus. */
+    maps: "",
+
     horaires: [
-      { jour: "Lundi",             heures: "Fermé" },
-      { jour: "Mardi — Jeudi",     heures: "12h00 – 14h30  ·  18h00 – 22h30" },
-      { jour: "Vendredi — Samedi", heures: "12h00 – 14h30  ·  18h00 – 23h30" },
-      { jour: "Dimanche",          heures: "12h00 – 15h00" }
+      { jour: "Lundi — Vendredi", heures: "10h00 – 22h00" },
+      { jour: "Samedi",           heures: "10h00 – 19h00" },
+      { jour: "Dimanche",         heures: "Fermé" }
     ]
   },
 
-  /* ---------- LES SPÉCIALITÉS DU CHEF (page d'accueil) ---------- */
-  /* 3 à 6 cards recommandées. */
-  specialites: [
-    {
-      nom: "[À COMPLÉTER : nom du plat]",
-      description: "Pâtes fraîches faites maison chaque matin, roulées à la main.",
-      image: "specialite-pates-fraiches.jpg",
-      badge: "Fait maison"
-    },
-    {
-      nom: "[À COMPLÉTER : nom du plat]",
-      description: "Produits frais sélectionnés chaque semaine chez nos producteurs.",
-      image: "specialite-plat-signature.jpg",
-      badge: "Frais du jour"
-    },
-    {
-      nom: "[À COMPLÉTER : nom du dessert]",
-      description: "Desserts préparés le jour même, dans la plus pure tradition.",
-      image: "specialite-dessert.jpg",
-      badge: "Fait maison"
-    }
-  ],
-
-  /* ---------- LA CARTE DU RESTAURANT ---------- */
-  /* Pour ajouter une catégorie, copier un bloc { titre: ..., plats: [...] } */
+  /* ---------- LA CARTE DU RESTAURANT ----------
+     Les prix s'écrivent librement : "18 €", "18,50 €", "—"…
+     Le champ "tag" est une petite étiquette optionnelle. */
   menu: [
     {
-      titre: "Antipasti",
-      soustitre: "Pour commencer",
+      titre: "Entrées",
+      soustitre: "Antipasti",
       plats: [
-        { nom: "[À COMPLÉTER]", description: "[À COMPLÉTER : description du plat]", prix: "—", tag: "" },
-        { nom: "[À COMPLÉTER]", description: "[À COMPLÉTER : description du plat]", prix: "—", tag: "" },
-        { nom: "[À COMPLÉTER]", description: "[À COMPLÉTER : description du plat]", prix: "—", tag: "Végétarien" }
+        { nom: "Antipasti burrata & légumes",      description: "Burrata crémeuse et légumes de saison marinés", prix: "18 €", tag: "" },
+        { nom: "Antipasti charcuterie & légumes",  description: "Charcuteries italiennes et légumes de saison",   prix: "18 €", tag: "" },
+        { nom: "Carpaccio mix de poisson",         description: "Poissons crus du jour, huile d'olive et citron", prix: "21 €", tag: "" },
+        { nom: "Carpaccio de bœuf",                description: "Finement tranché, roquette et copeaux",          prix: "18 €", tag: "" },
+        { nom: "Provola in carrozza",              description: "Provola panée et dorée, servie chaude",          prix: "14 €", tag: "" }
       ]
     },
     {
-      titre: "Primi Piatti",
-      soustitre: "Pâtes fraîches & risotti",
+      titre: "Plats",
+      soustitre: "Primi & secondi",
       plats: [
-        { nom: "[À COMPLÉTER]", description: "[À COMPLÉTER : description du plat]", prix: "—", tag: "Fait maison" },
-        { nom: "[À COMPLÉTER]", description: "[À COMPLÉTER : description du plat]", prix: "—", tag: "" },
-        { nom: "[À COMPLÉTER]", description: "[À COMPLÉTER : description du plat]", prix: "—", tag: "" },
-        { nom: "[À COMPLÉTER]", description: "[À COMPLÉTER : description du plat]", prix: "—", tag: "" }
+        { nom: "Pasta aux palourdes",              description: "Vongole, ail, persil et huile d'olive",          prix: "21 €", tag: "" },
+        { nom: "Pasta aux couteaux",               description: "Couteaux de mer, préparation minute",            prix: "19 €", tag: "" },
+        { nom: "Pasta aux champignons",            description: "Champignons poêlés, crème et parmesan",          prix: "18 €", tag: "" },
+        { nom: "Escalope de veau, champignons",    description: "Veau poêlé, sauce aux champignons",              prix: "21 €", tag: "" },
+        { nom: "Pasta saucisse & vin rouge",       description: "Saucisse italienne mijotée au vin rouge",        prix: "18 €", tag: "" },
+        { nom: "Filet de dorade",                  description: "Poisson du jour, légumes de saison",             prix: "21 €", tag: "" },
+        { nom: "Filet de bar",                     description: "Poisson du jour, légumes de saison",             prix: "21 €", tag: "" }
       ]
     },
     {
-      titre: "Secondi Piatti",
-      soustitre: "Viandes & poissons",
+      titre: "Desserts",
+      soustitre: "Dolci",
       plats: [
-        { nom: "[À COMPLÉTER]", description: "[À COMPLÉTER : description du plat]", prix: "—", tag: "" },
-        { nom: "[À COMPLÉTER]", description: "[À COMPLÉTER : description du plat]", prix: "—", tag: "" },
-        { nom: "[À COMPLÉTER]", description: "[À COMPLÉTER : description du plat]", prix: "—", tag: "" }
-      ]
-    },
-    {
-      titre: "Contorni",
-      soustitre: "Accompagnements",
-      plats: [
-        { nom: "[À COMPLÉTER]", description: "[À COMPLÉTER : description]", prix: "—", tag: "" },
-        { nom: "[À COMPLÉTER]", description: "[À COMPLÉTER : description]", prix: "—", tag: "" }
-      ]
-    },
-    {
-      titre: "Dolci",
-      soustitre: "Desserts frais du jour",
-      plats: [
-        { nom: "[À COMPLÉTER]", description: "[À COMPLÉTER : description du dessert]", prix: "—", tag: "Fait maison" },
-        { nom: "[À COMPLÉTER]", description: "[À COMPLÉTER : description du dessert]", prix: "—", tag: "" },
-        { nom: "[À COMPLÉTER]", description: "[À COMPLÉTER : description du dessert]", prix: "—", tag: "" }
+        { nom: "Tiramisu",       description: "Préparé en grande plaque, servi à la coupe", prix: "6 €", tag: "Fait maison" },
+        { nom: "Glace maison",   description: "Parfums selon la préparation du jour",       prix: "6 €", tag: "Fait maison" }
       ]
     }
   ],
 
-  /* ---------- LA CARTE DES VINS ---------- */
+  /* ---------- CARTE DES VINS (optionnelle) ----------
+     Tant que les noms contiennent « [À COMPLÉTER] », la liste
+     ne s'affiche pas sur le site : seule la présentation de la
+     cave reste visible. Dès que vous remplissez de vrais noms,
+     la liste apparaît automatiquement.                          */
   vins: [
     {
-      titre: "Vins rouges",
-      soustitre: "Rossi",
+      titre: "Vins rouges", soustitre: "Rossi",
       bouteilles: [
-        { nom: "[À COMPLÉTER : nom du vin]", region: "[À COMPLÉTER : région / appellation]", prix: "—" },
-        { nom: "[À COMPLÉTER : nom du vin]", region: "[À COMPLÉTER : région / appellation]", prix: "—" },
-        { nom: "[À COMPLÉTER : nom du vin]", region: "[À COMPLÉTER : région / appellation]", prix: "—" }
+        { nom: "[À COMPLÉTER : nom du vin]", region: "[À COMPLÉTER : région]", prix: "—" }
       ]
     },
     {
-      titre: "Vins blancs",
-      soustitre: "Bianchi",
+      titre: "Vins blancs", soustitre: "Bianchi",
       bouteilles: [
-        { nom: "[À COMPLÉTER : nom du vin]", region: "[À COMPLÉTER : région / appellation]", prix: "—" },
-        { nom: "[À COMPLÉTER : nom du vin]", region: "[À COMPLÉTER : région / appellation]", prix: "—" },
-        { nom: "[À COMPLÉTER : nom du vin]", region: "[À COMPLÉTER : région / appellation]", prix: "—" }
-      ]
-    },
-    {
-      titre: "Vins rosés",
-      soustitre: "Rosati",
-      bouteilles: [
-        { nom: "[À COMPLÉTER : nom du vin]", region: "[À COMPLÉTER : région / appellation]", prix: "—" },
-        { nom: "[À COMPLÉTER : nom du vin]", region: "[À COMPLÉTER : région / appellation]", prix: "—" }
-      ]
-    },
-    {
-      titre: "Pétillants",
-      soustitre: "Bollicine",
-      bouteilles: [
-        { nom: "[À COMPLÉTER : nom du vin]", region: "[À COMPLÉTER : région / appellation]", prix: "—" },
-        { nom: "[À COMPLÉTER : nom du vin]", region: "[À COMPLÉTER : région / appellation]", prix: "—" }
+        { nom: "[À COMPLÉTER : nom du vin]", region: "[À COMPLÉTER : région]", prix: "—" }
       ]
     }
   ],
 
-  /* ---------- GALERIE ÉVÉNEMENTS (page evenements.html) ---------- */
-  /* Ajouter/retirer des lignes librement. */
+  /* ---------- GALERIE (page Événements) ---------- */
   galerie: [
-    { image: "evenement-mariage-01.jpg",    legende: "Mariage" },
-    { image: "evenement-mariage-02.jpg",    legende: "Réception" },
-    { image: "evenement-anniversaire-01.jpg", legende: "Anniversaire" },
-    { image: "evenement-entreprise-01.jpg", legende: "Événement d'entreprise" },
-    { image: "evenement-buffet-01.jpg",     legende: "Buffet traiteur" },
-    { image: "evenement-table-01.jpg",      legende: "Table dressée" }
+    { image: "lasagne-blanche.jpg",   legende: "Lasagne" },
+    { image: "tiramisu-service.jpg",  legende: "Tiramisu" },
+    { image: "comptoir-vitrine.jpg",  legende: "Le comptoir" },
+    { image: "plat-antipasti.jpg",    legende: "Antipasti" },
+    { image: "comptoir-pates.jpg",    legende: "Pâtes du jour" },
+    { image: "terrasse.jpg",          legende: "La terrasse" }
   ]
 };
