@@ -191,7 +191,39 @@ d'accueil, elles peuvent servir de remplacement : `comptoir-pates.jpg`,
 `sandwich-italien.jpg`, `comptoir-arancini.jpg`, `fond-salle.jpg`,
 `fond-buffet.jpg`, `fond-assiette.jpg`, `fond-capacites.jpg`.
 
-### Adresses du site
+### ⚠️ Le cache d'Hostinger — à lire avant toute mise à jour
+
+Hostinger sert `style.css`, `main.js` et `menu-data.js` avec un cache de
+**7 jours** (`Cache-Control: public, max-age=604800`), appliqué *au niveau de
+son CDN*. Conséquence : remplacer un de ces fichiers ne suffit pas. Pendant une
+semaine, le serveur continue de renvoyer l'ancienne version — à vous comme à
+vos visiteurs — même après un rechargement forcé, puisque le cache se trouve
+côté serveur et non côté navigateur.
+
+C'est ce qui a fait croire à plusieurs reprises qu'une photo n'avait pas été
+mise à jour : le CSS servi était l'ancien, et pointait donc vers l'ancienne
+image.
+
+**La règle à suivre.** Les trois fichiers sont appelés avec un numéro de
+version dans les pages :
+
+```html
+<link rel="stylesheet" href="style.css?v=3">
+<script src="menu-data.js?v=3"></script>
+<script src="main.js?v=3"></script>
+```
+
+À chaque modification de `style.css`, `main.js` ou `menu-data.js,`
+**incrémentez ce numéro dans les trois pages** (`?v=4`, puis `?v=5`…).
+L'adresse change, le cache ne peut plus s'appliquer, et la nouvelle version
+part immédiatement chez tout le monde.
+
+**Pour les photos**, même principe mais autrement : quand une photo change de
+cadrage, elle change de nom de fichier. C'est pour cela que les fonds
+s'appellent `fond-facade.jpg` et `fond-enseigne.jpg` plutôt que leurs anciens
+noms.
+
+## Adresses du site
 
 Le fichier `.htaccess` supprime les extensions `.html` des adresses :
 
