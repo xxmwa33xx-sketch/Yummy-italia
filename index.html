@@ -98,9 +98,9 @@
           <span class="eyebrow">Avenue Eugène Plasky · Schaerbeek</span>
           <h1 class="hero__titre">Une adresse<br>italienne, <em>et tout<br>ce qui va avec.</em></h1>
           <p class="hero__accroche">
-            Le comptoir pour emporter, la salle pour s'attabler, les rayons pour
-            repartir avec une bouteille. Chez Yummy Italia, la cuisine se fait
-            sur place, tous les jours, et change au fil des arrivages.
+            <b class="hero__bienvenue">Bienvenue chez Yummy Italia</b>
+            Une cuisine italienne faite sur place chaque jour, qui évolue au fil
+            des arrivages et des envies du chef. À déguster sur place ou à emporter.
           </p>
           <div class="hero__cta">
             <a href="#carte" class="btn btn--jaune">Découvrir la carte</a>
@@ -239,6 +239,15 @@
 
           <article class="spec-item">
             <div class="photo spec-item__photo">
+              <img src="specialite-arancini.jpg" alt="Arancini dorés, croquettes de riz panées préparées chez Yummy Italia" loading="lazy" onerror="this.classList.add('introuvable')">
+              <div class="photo__ph"><b>Photo</b><span>specialite-arancini.jpg</span></div>
+            </div>
+            <h3>Les arancini</h3>
+            <p>Croquettes de riz panées et dorées, à croquer en entrée ou à emporter pour la route.</p>
+          </article>
+
+          <article class="spec-item">
+            <div class="photo spec-item__photo">
               <img src="specialite-pates.jpg" alt="Orecchiette au ragù et parmesan" loading="lazy" onerror="this.classList.add('introuvable')">
               <div class="photo__ph"><b>Photo</b><span>specialite-pates.jpg</span></div>
             </div>
@@ -264,22 +273,18 @@
             <p>Préparé en grande plaque et découpé à la commande, comme à la maison. Crémeux, généreux, sans chichi.</p>
           </article>
 
-          <article class="spec-item">
-            <span class="spec-item__badge">Nouveau</span>
-            <div class="photo spec-item__photo">
-              <img src="sandwich-italien.jpg" alt="Sandwichs italiens garnis de charcuterie et de pesto" loading="lazy" onerror="this.classList.add('introuvable')">
-              <div class="photo__ph"><b>Photo</b><span>sandwich-italien.jpg</span></div>
-            </div>
-            <h3>Le sandwich italien</h3>
-            <p>Charcuteries tranchées sur place, mozzarella, légumes marinés, pesto maison. Préparé à la commande.</p>
-          </article>
-
         </div>
+
+        <p class="mention-sandwich apparait">
+          <b>Sandwichs italiens préparés minute</b>
+          Nos sandwichs italiens sont préparés minute sur place, avec les produits
+          de la maison. <span class="mention-sandwich__prix">6 € ou 9 € selon la formule.</span>
+        </p>
 
         <div class="specs__pied apparait">
           <p class="et-aussi">
             Et aussi, selon les jours : antipasti de légumes marinés, poissons frais,
-            arancini, glaces maison.
+            charcuteries tranchées sur place, glaces maison.
           </p>
           <a href="tel:" data-lien="telephone" class="btn btn--jaune">Vérifier une disponibilité</a>
         </div>
@@ -392,15 +397,15 @@
     </section>
 
     <!-- ============ 8. PASSER NOUS VOIR ============ -->
-    <section class="section contact" id="contact">
+    <section class="fond fond--contact contact-fond" id="contact">
       <div class="wrap">
-        <div class="apparait">
-          <span class="eyebrow eyebrow--rouge">Nous trouver</span>
+        <div class="apparait centre">
+          <span class="eyebrow">Nous trouver</span>
           <h2 class="titre-section">Passer nous voir</h2>
           <span class="filet" aria-hidden="true"></span>
         </div>
 
-        <div class="contact__grid apparait">
+        <div class="contact-fond__panneau apparait">
           <div class="contact__colonne">
             <h3>Coordonnées</h3>
             <ul class="contact__infos">
@@ -408,10 +413,6 @@
               <li><b>Téléphone</b><a href="tel:" data-info="telephone"></a></li>
               <li><b>E-mail</b><a href="mailto:" data-info="email"></a></li>
             </ul>
-            <div class="contact__boutons">
-              <a href="tel:" data-lien="telephone" class="btn btn--jaune">Nous appeler</a>
-              <a href="#" data-itineraire class="btn btn--ligne">Obtenir l'itinéraire</a>
-            </div>
           </div>
 
           <div class="contact__colonne">
@@ -419,13 +420,11 @@
             <ul class="horaires-liste" data-horaires></ul>
             <p class="note-douce">Fermé le dimanche.</p>
           </div>
+        </div>
 
-          <div class="contact__colonne contact__colonne--photo">
-            <div class="photo">
-              <img src="facade-terrasse.jpg" alt="La façade de Yummy Italia et sa terrasse" loading="lazy" onerror="this.classList.add('introuvable')">
-              <div class="photo__ph"><b>Photo</b><span>facade-terrasse.jpg</span></div>
-            </div>
-          </div>
+        <div class="contact-fond__cta apparait">
+          <a href="tel:" data-lien="telephone" class="btn btn--jaune">Nous appeler</a>
+          <a href="#" data-itineraire class="btn btn--ligne">Obtenir l'itinéraire</a>
         </div>
       </div>
     </section>

@@ -59,8 +59,8 @@
                 <span class="plat__nom">${echap(p.nom)}${
                   p.tag ? `<span class="plat__tag">${echap(p.tag)}</span>` : ""
                 }</span>
-                <span class="plat__points"></span>
-                <span class="plat__prix">${echap(p.prix)}</span>
+                ${p.prix ? `<span class="plat__points"></span>
+                <span class="plat__prix">${echap(p.prix)}</span>` : ""}
               </div>
               ${p.description ? `<p class="plat__desc">${echap(p.description)}</p>` : ""}
             </li>`).join("")}

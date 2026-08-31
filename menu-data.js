@@ -52,6 +52,7 @@ const CONTENU = {
       titre: "Entrées",
       soustitre: "Antipasti",
       plats: [
+        { nom: "Arancini",                         description: "Croquettes de riz panées, bolognaise ou jambon-fromage", prix: "5 €", tag: "" },
         { nom: "Antipasti burrata & légumes",      description: "Burrata crémeuse et légumes de saison marinés", prix: "18 €", tag: "" },
         { nom: "Antipasti charcuterie & légumes",  description: "Charcuteries italiennes et légumes de saison",   prix: "18 €", tag: "" },
         { nom: "Carpaccio mix de poisson",         description: "Poissons crus du jour, huile d'olive et citron", prix: "21 €", tag: "" },
@@ -77,7 +78,8 @@ const CONTENU = {
       soustitre: "Dolci",
       plats: [
         { nom: "Tiramisu",       description: "Préparé en grande plaque, servi à la coupe", prix: "6 €", tag: "Fait maison" },
-        { nom: "Glace maison",   description: "Parfums selon la préparation du jour",       prix: "6 €", tag: "Fait maison" }
+        { nom: "Glace maison",   description: "Parfums selon la préparation du jour",       prix: "6 €", tag: "Fait maison" },
+        { nom: "Sabayon",        description: "Le dessert italien classique, crémeux et mousseux", prix: "8 €", tag: "" }
       ]
     }
   ],

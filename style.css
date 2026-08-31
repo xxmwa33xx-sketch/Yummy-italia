@@ -247,6 +247,15 @@ body::before {
   font-size: clamp(1.02rem, 1rem + .4vw, 1.22rem); max-width: 46ch;
   margin-top: 1.5rem; color: var(--texte-doux);
 }
+/* Le mot d'accueil, en tête de l'accroche du hero */
+.hero__bienvenue {
+  display: block; font-family: var(--display); font-weight: 600;
+  font-size: clamp(1.15rem, 1.05rem + .5vw, 1.4rem);
+  color: var(--brun-900); letter-spacing: -.02em;
+  font-variation-settings: "SOFT" 40, "WONK" 1;
+  margin-bottom: .45rem;
+}
+
 .hero__cta { display: flex; flex-wrap: wrap; gap: .9rem; margin-top: 2.1rem; }
 
 /* Repères pratiques sous les boutons */
@@ -723,11 +732,35 @@ body::before {
 .faq__reponse p:last-child { margin-bottom: 0; }
 .faq__item summary:focus-visible { outline: 2px solid var(--jaune-500); outline-offset: 3px; }
 
+/* ---------- 13 ter. MENTION DES SANDWICHS ----------
+   Simple complément aux spécialités, pas une section à part. */
+.mention-sandwich {
+  max-width: 72ch;
+  margin: clamp(2rem, 4vw, 2.8rem) 0 0;
+  padding: 1.1rem 1.3rem;
+  background: var(--beige-200);
+  border-left: 3px solid var(--rouge);
+  border-radius: 0 2px 2px 0;
+  color: var(--texte-doux); font-size: .98rem;
+}
+.mention-sandwich b {
+  display: block; font-family: var(--display);
+  font-size: 1.12rem; color: var(--brun-900);
+  letter-spacing: -.015em; font-variation-settings: "SOFT" 40, "WONK" 1;
+  margin-bottom: .35rem;
+}
+.mention-sandwich__prix { color: var(--jaune-600); font-weight: 700; white-space: nowrap; }
+
 /* ---------- 14. CONTACT ---------- */
 .contact { background: var(--beige-100); }
 .contact__grid {
   display: grid; grid-template-columns: 1.1fr .9fr 1fr;
+  /* Les trois colonnes étaient collées : la photo touchait le bloc horaires. */
+  gap: clamp(2rem, 4vw, 3.2rem);
+  margin-top: clamp(2.2rem, 4vw, 3rem);
 }
+/* La photo respire un peu plus que les deux colonnes de texte. */
+.contact__colonne--photo { padding-left: clamp(0rem, 1.6vw, 1.6rem); }
 .contact__grid--sans-photo {
   grid-template-columns: 1fr 1fr; max-width: 820px;
   gap: clamp(2rem, 4vw, 3.5rem);
@@ -757,6 +790,56 @@ body::before {
 .horaires-liste li span:first-child { font-weight: 700; }
 .horaires-liste li span:last-child { color: var(--texte-doux); text-align: right; }
 .contact__colonne--photo .photo { aspect-ratio: 4 / 5; border-radius: var(--radius); height: 100%; }
+
+/* ---------- 14 bis. PASSER NOUS VOIR — la façade en fond ----------
+   La photo occupe toute la section. Le contenu repose sur un panneau
+   translucide : assez dense pour garantir la lecture, assez discret
+   pour que la façade reste visible derrière. */
+.contact-fond {
+  padding-block: clamp(4rem, 8vw, 6.5rem);
+  text-align: center;
+}
+/* Le liseré tricolore du bas ferait doublon avec celui du pied de page. */
+.contact-fond::after { display: none; }
+
+/* Le contenu repose sur son propre panneau : le voile général peut donc
+   rester plus léger et laisser la façade se voir vraiment. */
+.contact-fond::before {
+  background: linear-gradient(to bottom,
+    rgba(28, 15, 7, .74) 0%,
+    rgba(28, 15, 7, .50) 35%,
+    rgba(28, 15, 7, .56) 65%,
+    rgba(28, 15, 7, .84) 100%);
+}
+
+.contact-fond__panneau {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  max-width: 860px; margin: clamp(2.4rem, 4.5vw, 3.4rem) auto 0;
+  padding: clamp(1.8rem, 3.5vw, 2.6rem) clamp(1.6rem, 3.5vw, 2.8rem);
+  text-align: left;
+  background: rgba(28, 15, 7, .46);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, .18);
+  border-radius: 2px;
+}
+.contact-fond .contact__colonne h3 { color: var(--creme); }
+.contact-fond .contact__infos li { border-bottom-color: rgba(255, 255, 255, .2); }
+.contact-fond .contact__infos b { color: var(--jaune-400); }
+.contact-fond .contact__infos a { border-bottom-color: rgba(255, 255, 255, .4); }
+.contact-fond .horaires-liste li { border-bottom-color: rgba(255, 255, 255, .16); }
+.contact-fond .horaires-liste li span:last-child { color: rgba(255, 255, 255, .8); }
+.contact-fond .note-douce { color: rgba(255, 255, 255, .72); margin-bottom: 0; }
+
+.contact-fond__cta {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: .9rem;
+  margin-top: clamp(1.8rem, 3.5vw, 2.4rem);
+}
+
+@media (max-width: 700px) {
+  .contact-fond__panneau { grid-template-columns: 1fr; }
+  .contact-fond__cta .btn { width: 100%; }
+}
 
 /* ---------- 15. FORMULAIRE ---------- */
 .formulaire {
@@ -1006,20 +1089,10 @@ body::before {
 .fond .btn--ligne:hover { background: var(--creme); color: var(--brun-900); }
 
 /* Les images de fond, section par section */
-.fond--hero      { background-image: url("fond-hero.jpg");      background-position: center 58%; }
+.fond--hero      { background-image: url("fond-hero.jpg");      background-position: center 38%; }
 .fond--cuisine   { background-image: url("fond-cuisine.jpg");   background-position: center 55%; }
-.fond--salle     { background-image: url("fond-salle.jpg");     background-position: center 50%; }
 .fond--cta       { background-image: url("fond-cta.jpg");       background-position: center 46%; }
-
-/* La salle est photographiée en lumière douce : son voile est plus
-   léger, sinon l'intérieur du restaurant disparaît complètement. */
-.fond--salle::before {
-  background: linear-gradient(to bottom,
-    rgba(28, 15, 7, .80) 0%,
-    rgba(28, 15, 7, .60) 40%,
-    rgba(28, 15, 7, .66) 65%,
-    rgba(28, 15, 7, .86) 100%);
-}
+.fond--contact   { background-image: url("fond-contact.jpg");   background-position: center 52%; }
 
 /* ---------- 1. Le hero de la page ---------- */
 .evt-hero {
@@ -1100,8 +1173,16 @@ body::before {
 .appel p { margin: 1.2rem auto 0; max-width: 52ch; }
 .appel .hero__cta { justify-content: center; margin-top: 2rem; }
 
+/* ---------- La FAQ, entre le formulaire crème et la bande photo ---------- */
+.faq-section { background: var(--beige-200); }
+
 /* ---------- Adaptations mobiles ---------- */
 @media (max-width: 620px) {
+  /* Sur mobile la bande recadre fortement en largeur : on décale le
+     cadrage pour garder l'enseigne Yummy Italia dans le champ. */
+  .fond--hero { background-position: 34% 38%; }
+  .fond--cta  { background-position: 38% 46%; }
+  .fond--contact { background-position: 42% 52%; }
   .reperes { grid-template-columns: 1fr; }
   .evt-hero { min-height: auto; padding-block: 6.5rem 3rem; }
   /* Sur petit écran on assombrit un peu plus : les photos sont

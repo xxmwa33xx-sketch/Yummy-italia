@@ -154,16 +154,16 @@ web. Pour remplacer l'une d'elles, il suffit de déposer une nouvelle photo au
 | `terrasse.jpg` | Sur place |
 | `comptoir.jpg` | À emporter |
 | `chef.jpg` | Événements |
+| `specialite-arancini.jpg` | Spécialité — les arancini |
 | `specialite-pates.jpg` | Spécialité — les pâtes |
 | `specialite-lasagne.jpg` | Spécialité — la lasagne |
 | `dolci-tiramisu.jpg` | Spécialité — le tiramisu |
-| `sandwich-italien.jpg` | Spécialité — le sandwich italien |
 | `tableau-vin.jpg` | Fond de la bande « Vini italiani » |
 | `cave-vins.jpg` | Épicerie, traiteur & dégustation |
 | `epicerie-produits.jpg` | Épicerie, traiteur & dégustation |
 | `epicerie-vitrine.jpg` | Épicerie, traiteur & dégustation |
 | `comptoir-vitrine.jpg` | Introduction événements (accueil) |
-| `facade-terrasse.jpg` | Section contact de l'accueil |
+| `fond-contact.jpg` | Fond de la section « Passer nous voir » (accueil) |
 | `og-image.jpg` | Aperçu lors d'un partage sur les réseaux |
 
 Sur la **page Événements**, les photos ne sont plus des vignettes : elles servent
@@ -174,7 +174,6 @@ lisible. Ces fonds portent tous le préfixe `fond-`.
 |---|---|
 | `fond-hero.jpg` | Le hero — la façade et la terrasse |
 | `fond-cuisine.jpg` | « Un repas italien pour votre groupe » — le comptoir garni |
-| `fond-salle.jpg` | « Parlons de votre événement » — la salle |
 | `fond-cta.jpg` | « Passez nous voir » — la façade et l'enseigne |
 
 Pour changer l'un de ces fonds : déposez la nouvelle photo au même nom de
@@ -189,6 +188,7 @@ d'accueil, elles peuvent servir de remplacement : `comptoir-pates.jpg`,
 `plat-poisson.jpg`, `plat-charcuterie.jpg`, `plat-burrata.jpg`,
 `plat-pasta-couteaux.jpg`, `plat-filet.jpg`, `legumes-grilles.jpg`,
 `lasagne-blanche.jpg`, `tiramisu-service.jpg`, `pates-ragu.jpg`,
+`sandwich-italien.jpg`, `comptoir-arancini.jpg`, `fond-salle.jpg`,
 `fond-buffet.jpg`, `fond-assiette.jpg`, `fond-capacites.jpg`.
 
 ### Conseils techniques
