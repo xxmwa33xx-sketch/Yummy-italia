@@ -1089,9 +1089,9 @@ body::before {
 .fond .btn--ligne:hover { background: var(--creme); color: var(--brun-900); }
 
 /* Les images de fond, section par section */
-.fond--hero      { background-image: url("fond-hero.jpg");      background-position: center 38%; }
+.fond--hero      { background-image: url("fond-facade.jpg");      background-position: center 38%; }
 .fond--cuisine   { background-image: url("fond-cuisine.jpg");   background-position: center 55%; }
-.fond--cta       { background-image: url("fond-cta.jpg");       background-position: center 46%; }
+.fond--cta       { background-image: url("fond-enseigne.jpg");       background-position: center 46%; }
 .fond--contact   { background-image: url("fond-contact.jpg");   background-position: center 52%; }
 
 /* ---------- 1. Le hero de la page ---------- */

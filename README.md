@@ -154,7 +154,7 @@ web. Pour remplacer l'une d'elles, il suffit de déposer une nouvelle photo au
 | `terrasse.jpg` | Sur place |
 | `comptoir.jpg` | À emporter |
 | `chef.jpg` | Événements |
-| `specialite-arancini.jpg` | Spécialité — les arancini |
+| `arancini.jpg` | Spécialité — les arancini |
 | `specialite-pates.jpg` | Spécialité — les pâtes |
 | `specialite-lasagne.jpg` | Spécialité — la lasagne |
 | `dolci-tiramisu.jpg` | Spécialité — le tiramisu |
@@ -172,9 +172,9 @@ lisible. Ces fonds portent tous le préfixe `fond-`.
 
 | Fichier | Section qu'elle habille |
 |---|---|
-| `fond-hero.jpg` | Le hero — la façade et la terrasse |
+| `fond-facade.jpg` | Le hero de la page Événements — la façade et la terrasse |
 | `fond-cuisine.jpg` | « Un repas italien pour votre groupe » — le comptoir garni |
-| `fond-cta.jpg` | « Passez nous voir » — la façade et l'enseigne |
+| `fond-enseigne.jpg` | « Passez nous voir » — la façade et l'enseigne |
 
 Pour changer l'un de ces fonds : déposez la nouvelle photo au même nom de
 fichier. Ces bandes fonctionnent mieux avec une photo **au format paysage** (16/9).
@@ -191,7 +191,28 @@ d'accueil, elles peuvent servir de remplacement : `comptoir-pates.jpg`,
 `sandwich-italien.jpg`, `comptoir-arancini.jpg`, `fond-salle.jpg`,
 `fond-buffet.jpg`, `fond-assiette.jpg`, `fond-capacites.jpg`.
 
-### Conseils techniques
+### Adresses du site
+
+Le fichier `.htaccess` supprime les extensions `.html` des adresses :
+
+| Ce que le visiteur voit | Fichier servi |
+|---|---|
+| `yummy-italia.com/` | `index.html` |
+| `yummy-italia.com/evenements` | `evenements.html` |
+| `yummy-italia.com/merci` | `merci.html` |
+
+Les anciennes adresses (`/index.html`, `/evenements.html`) redirigent
+automatiquement vers les nouvelles, en 301 : les liens déjà partagés et le
+référencement acquis ne sont pas perdus.
+
+⚠️ **Tous les liens internes doivent rester sans `.html`** (`/`, `/evenements`).
+Un lien vers `evenements.html` fonctionnerait, mais provoquerait une
+redirection inutile à chaque clic.
+
+⚠️ `.htaccess` commence par un point : sur GitHub il faut le téléverser comme
+les autres fichiers, et vérifier qu'il apparaît bien dans la liste du dépôt.
+
+## Conseils techniques
 - Format **JPG**, largeur **1600 px maximum**, poids **< 300 Ko** par photo
 - Cadrage : les photos sont recadrées automatiquement, garder le sujet au centre
 - `og-image.jpg` idéalement en 1200 × 630 px

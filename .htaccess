@@ -1,0 +1,33 @@
+# ============================================================
+#  Yummy Italia — adresses propres, sans « .html »
+#  Hébergement Hostinger (Apache / LiteSpeed).
+# ============================================================
+
+# Empêche le serveur de deviner tout seul les extensions :
+# sans cela, la réécriture ci-dessous entre en conflit avec lui.
+Options -MultiViews
+
+RewriteEngine On
+
+# ---------- 1. On nettoie ce que le visiteur a tapé ----------
+
+# yummy-italia.com/index.html  →  yummy-italia.com/
+RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+RewriteRule ^ / [R=301,L]
+
+# yummy-italia.com/evenements.html  →  yummy-italia.com/evenements
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# ---------- 2. On sert le bon fichier en coulisses ----------
+
+# /evenements  →  evenements.html, sans que l'adresse change
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.+?)/?$ $1.html [L]
+
+# ---------- 3. Page d'accueil ----------
+DirectoryIndex index.html
+
+# ---------- 4. Page d'erreur ----------
+ErrorDocument 404 /index.html

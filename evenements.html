@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Traiteur italien &amp; événements à Bruxelles — Yummy Italia</title>
   <meta name="description" content="Yummy Italia, traiteur italien à Schaerbeek : repas de groupe, événements privés et professionnels à Bruxelles. Jusqu'à 50 personnes une semaine à l'avance, davantage avec un mois d'organisation.">
-  <link rel="canonical" href="https://yummy-italia.com/evenements.html">
+  <link rel="canonical" href="https://yummy-italia.com/evenements">
 
+  <meta property="og:url" content="https://yummy-italia.com/evenements">
   <meta property="og:title" content="Traiteur italien & événements à Bruxelles — Yummy Italia">
   <meta property="og:description" content="Notre cuisine italienne pour vos repas de groupe et vos événements privés ou professionnels, à Schaerbeek.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_BE">
-  <meta property="og:image" content="og-image.jpg">
+  <meta property="og:image" content="https://yummy-italia.com/og-image.jpg">
 
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,7 +22,7 @@
 
   <!-- La photo de fond du hero est chargée en priorité : c'est le
        premier élément visible de la page. -->
-  <link rel="preload" as="image" href="fond-hero.jpg">
+  <link rel="preload" as="image" href="fond-facade.jpg">
 
   <!-- Données structurées : identité et informations pratiques du restaurant.
        Elles reprennent exactement ce qui est affiché sur le site. -->
@@ -62,7 +63,7 @@
     "makesOffer": {
       "@type": "Offer",
       "name": "Service traiteur italien pour événements",
-      "url": "https://yummy-italia.com/evenements.html",
+      "url": "https://yummy-italia.com/evenements",
       "areaServed": { "@type": "City", "name": "Bruxelles" }
     }
   }
@@ -75,7 +76,7 @@
   <!-- ============ EN-TÊTE ============ -->
   <header class="entete">
     <div class="wrap entete__inner">
-      <a class="logo" href="index.html">Yummy&nbsp;<span>Italia</span> <small>Épicerie italienne</small></a>
+      <a class="logo" href="/">Yummy&nbsp;<span>Italia</span> <small>Épicerie italienne</small></a>
 
       <button class="nav-burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-principale">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
@@ -84,11 +85,11 @@
       </button>
 
       <nav class="nav" id="nav-principale" aria-label="Navigation principale">
-        <a href="index.html#services">Services</a>
-        <a href="index.html#carte">La carte</a>
-        <a href="index.html#specialites">Spécialités</a>
-        <a href="index.html#epicerie">Épicerie</a>
-        <a href="evenements.html" class="actif">Événements</a>
+        <a href="/#services">Services</a>
+        <a href="/#carte">La carte</a>
+        <a href="/#specialites">Spécialités</a>
+        <a href="/#epicerie">Épicerie</a>
+        <a href="/evenements" class="actif">Événements</a>
         <a href="tel:" data-lien="telephone" class="btn btn--jaune">Nous appeler</a>
       </nav>
     </div>
@@ -225,7 +226,7 @@
                 method="POST"
                 data-netlify="true"
                 netlify-honeypot="bot-field"
-                action="/merci.html">
+                action="/merci">
 
             <input type="hidden" name="form-name" value="devis-traiteur">
             <p class="sr-only">
@@ -387,7 +388,7 @@
         </p>
         <div class="hero__cta">
           <a href="#" data-itineraire class="btn btn--jaune">Obtenir l'itinéraire</a>
-          <a href="index.html#carte" class="btn btn--ligne">Voir la carte</a>
+          <a href="/#carte" class="btn btn--ligne">Voir la carte</a>
         </div>
       </div>
     </section>
@@ -461,9 +462,9 @@
         <p><a href="tel:" data-info="telephone"></a></p>
         <p><a href="mailto:" data-info="email"></a></p>
         <h4 style="margin-top:1.8rem">Plus</h4>
-        <p><a href="index.html">Accueil</a></p>
-        <p><a href="index.html#carte">La carte</a></p>
-        <p><a href="index.html#specialites">Nos spécialités</a></p>
+        <p><a href="/">Accueil</a></p>
+        <p><a href="/#carte">La carte</a></p>
+        <p><a href="/#specialites">Nos spécialités</a></p>
       </div>
     </div>
 
